@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisaGo — Know Before You Go</title>
+    <meta name="description" content="VisaGo helps travelers instantly check visa requirements for 199 countries. Plan trips, track visa stays, and explore the world with confidence.">
+    <meta name="theme-color" content="#121218">
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="VisaGo — Know Before You Go">
+    <meta property="og:description" content="Instantly check visa requirements for 199 countries. Plan trips, track stays, and travel smarter.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://visago.dev">
+    <meta property="og:image" content="https://visago.dev/og-image.png">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #121218;
+            --surface: #1a1a24;
+            --card: #22222e;
+            --orange: #FF6F00;
+            --orange-light: #FF8F00;
+            --text: #f0f0f5;
+            --text-muted: #9090a0;
+            --blue: #3366CC;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 24px;
+            background: rgba(18, 18, 24, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--orange); }
+        nav a.nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 24px;
+            transition: color 0.2s;
+        }
+        nav a.nav-link:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255,111,0,0.08) 0%, transparent 60%);
+        }
+        .hero-content { max-width: 640px; }
+        .hero-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 24px;
+            margin-bottom: 32px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .hero h1 span { color: var(--orange); }
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--orange);
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255, 111, 0, 0.3);
+        }
+        .cta-button svg { width: 20px; height: 20px; }
+        .hero-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.06);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 16px;
+            padding: 28px;
+            transition: border-color 0.2s;
+        }
+        .feature-card:hover { border-color: rgba(255,111,0,0.2); }
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 14px;
+        }
+        .feature-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Premium */
+        .premium {
+            padding: 80px 24px;
+            text-align: center;
+        }
+        .premium-box {
+            max-width: 520px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--surface), var(--card));
+            border: 1px solid rgba(255,111,0,0.15);
+            border-radius: 20px;
+            padding: 48px 32px;
+        }
+        .premium-box h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .premium-price {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--orange);
+            margin: 16px 0 8px;
+        }
+        .premium-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .premium-features {
+            list-style: none;
+            text-align: left;
+            max-width: 300px;
+            margin: 24px auto;
+        }
+        .premium-features li {
+            padding: 8px 0;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+        .premium-features li::before {
+            content: "✓ ";
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--text); }
+        .footer-links { margin-bottom: 16px; }
+
+        @media (max-width: 600px) {
+            nav { padding: 12px 16px; }
+            .features { padding: 60px 16px; }
+            .premium-box { padding: 32px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="nav-brand">Visa<span>Go</span></a>
+    <div>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#premium" class="nav-link">Premium</a>
+        <a href="/privacy" class="nav-link">Privacy</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <img src="icon.png" alt="VisaGo" class="hero-icon">
+        <h1>Know Before <span>You Go</span></h1>
+        <p>Instantly check visa requirements for 199 countries. Plan trips, track visa stays, and explore the world with confidence.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.visago.app" class="cta-button">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            Get it on Google Play
+        </a>
+        <div class="hero-badge">Free with optional premium &middot; Android</div>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <h2>Everything You Need to Travel Smart</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>199 Countries</h3>
+            <p>Visa requirements for every destination — visa-free, visa on arrival, eVisa, and visa required — all at a glance.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>Document Checklists</h3>
+            <p>Know exactly what documents you need before you travel. Country-specific requirements and ETIAS/EES alerts.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✈️</div>
+            <h3>Trip Planner</h3>
+            <p>Save destinations, set travel dates, and get departure reminders so you never miss a thing.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🛂</div>
+            <h3>Visa Stay Tracker</h3>
+            <p>Monitor your active visa stays with countdown timers. Never overstay with expiry alerts.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🇪🇺</div>
+            <h3>Schengen Calculator</h3>
+            <p>Track your 90/180 day Schengen limit automatically. See remaining days and overstay risk.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💪</div>
+            <h3>Passport Power Score</h3>
+            <p>See how your passport ranks globally. Combined scores for dual citizens with "What If" explorer.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>Digital Nomad Visas</h3>
+            <p>Browse remote work visas worldwide — duration, cost, income requirements, and tax info.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔔</div>
+            <h3>Smart Reminders</h3>
+            <p>Passport expiry warnings, trip departure alerts, and visa stay notifications — all automatic.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📡</div>
+            <h3>Works Offline</h3>
+            <p>All visa data stored locally on your device. No internet needed to check requirements on the go.</p>
+        </div>
+    </div>
+</section>
+
+<section class="premium" id="premium">
+    <div class="premium-box">
+        <h2>Go Premium</h2>
+        <p style="color: var(--text-muted);">Unlock the full travel toolkit</p>
+        <div class="premium-price">$9.99 <span>/ year</span></div>
+        <ul class="premium-features">
+            <li>Ad-free experience</li>
+            <li>Multiple passports (up to 5)</li>
+            <li>Combined Passport Power Score</li>
+            <li>"What If" passport explorer</li>
+            <li>Visa Stay Tracker</li>
+            <li>Trip reminders &amp; notifications</li>
+        </ul>
+        <a href="https://play.google.com/store/apps/details?id=com.visago.app" class="cta-button" style="margin-top: 8px;">
+            Start Free, Upgrade Anytime
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="mailto:support@visago.dev">Contact</a>
+        <a href="https://play.google.com/store/apps/details?id=com.visago.app">Google Play</a>
+    </div>
+    <p>&copy; 2026 VisaGo. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
