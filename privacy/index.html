@@ -4,96 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — VisaGo</title>
-    <meta name="description" content="VisaGo Privacy Policy — how we handle your data.">
-    <meta name="theme-color" content="#121218">
-    <link rel="icon" type="image/png" href="/icon.png">
+    <meta name="description" content="VisaGo Privacy Policy. How we handle your data, what we collect, and your rights.">
+    <meta name="theme-color" content="#0c0c14">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg: #121218;
-            --surface: #1a1a24;
-            --orange: #FF6F00;
-            --text: #f0f0f5;
-            --text-muted: #9090a0;
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#0c0c14;--surface:#14141f;--orange:#FF6F00;
+            --text:#f0f0f5;--text-secondary:#b0b0c0;--text-muted:#707088;
+            --border:rgba(255,255,255,0.05);
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+        body{
+            font-family:'DM Sans',system-ui,sans-serif;
+            background:var(--bg);color:var(--text);line-height:1.7;
         }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 16px 24px;
-            background: rgba(18, 18, 24, 0.9);
-            backdrop-filter: blur(12px);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        a{color:var(--orange);text-decoration:none}
+        a:hover{text-decoration:underline}
+        nav{
+            padding:16px 32px;display:flex;align-items:center;justify-content:space-between;
+            border-bottom:1px solid var(--border);
         }
-        .nav-brand {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
+        .nav-brand{font-size:22px;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
+        .nav-brand span{color:var(--orange)}
+        nav a.nav-link{color:var(--text-secondary);font-size:14px;font-weight:500;margin-left:24px}
+        .content{max-width:720px;margin:0 auto;padding:60px 24px 80px}
+        .content h1{font-size:36px;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px}
+        .content .updated{font-size:14px;color:var(--text-muted);margin-bottom:48px}
+        .content h2{font-size:22px;font-weight:700;margin-top:40px;margin-bottom:12px;color:var(--text)}
+        .content h3{font-size:17px;font-weight:600;margin-top:24px;margin-bottom:8px;color:var(--text)}
+        .content p{font-size:16px;color:var(--text-secondary);margin-bottom:16px}
+        .content ul{margin:0 0 16px 24px}
+        .content li{font-size:16px;color:var(--text-secondary);margin-bottom:8px}
+        .content strong{color:var(--text);font-weight:600}
+        .highlight-box{
+            background:var(--surface);border:1px solid var(--border);border-radius:12px;
+            padding:20px 24px;margin:24px 0;
         }
-        .nav-brand span { color: var(--orange); }
-        nav a.nav-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            margin-left: 24px;
-            transition: color 0.2s;
+        .highlight-box p{margin-bottom:0;font-size:15px}
+        footer{
+            padding:32px 24px;text-align:center;border-top:1px solid var(--border);
         }
-        nav a.nav-link:hover { color: var(--text); }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 100px 24px 60px;
+        footer a{color:var(--text-muted);font-size:14px;margin:0 12px;text-decoration:none}
+        footer a:hover{color:var(--text);text-decoration:none}
+        footer p{color:var(--text-muted);font-size:13px;margin-top:12px}
+        @media(max-width:600px){
+            nav{padding:12px 18px}
+            .content{padding:40px 18px 60px}
+            .content h1{font-size:28px}
         }
-        h1 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .last-updated {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 40px;
-        }
-        h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-top: 36px;
-            margin-bottom: 12px;
-            color: var(--orange);
-        }
-        p, li {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 12px;
-        }
-        ul {
-            padding-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        a { color: var(--orange); }
-        footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.04);
-        }
-        footer p { color: var(--text-muted); font-size: 14px; }
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 12px;
-        }
-        footer a:hover { color: var(--text); }
     </style>
 </head>
 <body>
@@ -102,85 +63,147 @@
     <a href="/" class="nav-brand">Visa<span>Go</span></a>
     <div>
         <a href="/" class="nav-link">Home</a>
-        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
     </div>
 </nav>
 
-<div class="container">
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last Updated: February 23, 2026</p>
+<div class="content">
 
-    <h2>Introduction</h2>
-    <p>VisaGo ("we", "our", or "the app") is a mobile application that provides visa requirement information for travelers. This Privacy Policy explains how we collect, use, and protect your information when you use our app.</p>
+<h1>Privacy Policy</h1>
+<p class="updated">Last updated: March 7, 2026</p>
 
-    <h2>Information We Collect</h2>
-    <p>VisaGo stores all user data locally on your device. We collect and store the following information on-device only:</p>
-    <ul>
-        <li><strong>Passport nationality selections</strong> — stored locally to display relevant visa requirements for your citizenship</li>
-        <li><strong>Trip plans and dates</strong> — stored locally for trip planning and departure reminders</li>
-        <li><strong>Visa stay tracking entries</strong> — stored locally to help you monitor your permitted stays</li>
-        <li><strong>App preferences</strong> — such as notification settings and display options</li>
-    </ul>
-    <p>We do <strong>not</strong> collect, transmit, or store any personal data on external servers. All data remains on your device.</p>
+<p>VisaGo ("we," "our," or "the app") is a travel visa requirements and trip planning application. We take your privacy seriously. This policy explains what data we collect, how we use it, and your rights.</p>
 
-    <h2>Third-Party Services</h2>
-    <p>VisaGo integrates the following third-party services, each of which may collect data according to their own privacy policies:</p>
-    <ul>
-        <li><strong>Google AdMob</strong> — Displays advertisements to free-tier users. AdMob may collect device identifiers, IP address, and usage data to serve personalized or non-personalized ads. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
-        <li><strong>Google Play Billing</strong> — Processes premium subscription purchases through the Google Play Store. All payment information is handled entirely by Google. See <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldi=34330&ldt=privacynotice" target="_blank" rel="noopener">Google Payments Privacy Notice</a>.</li>
-        <li><strong>Google Play Services</strong> — Provides core functionality including the User Messaging Platform (UMP) for GDPR consent management.</li>
-    </ul>
+<div class="highlight-box">
+    <p><strong>The short version:</strong> Your passport info, trips, documents, and personal data stay on your device. We don't sell your data. We don't show ads. We collect minimal analytics to improve the app.</p>
+</div>
 
-    <h2>Advertising &amp; Consent</h2>
-    <p>Free-tier users see banner and interstitial ads served by Google AdMob. We use the Google User Messaging Platform (UMP) to collect consent from users in regions where required (such as the EU/EEA under GDPR). You may update your ad consent preferences at any time through the app settings.</p>
-    <p>Premium subscribers do not see any advertisements.</p>
+<h2>1. Data Stored on Your Device</h2>
 
-    <h2>Data Storage &amp; Security</h2>
-    <p>All personal data (passports, trips, visa stays, and preferences) is stored locally on your device in an application-private database. We do not operate any servers that receive or store your personal information.</p>
-    <p>If you uninstall the app, all locally stored data is permanently deleted from your device.</p>
+<p>The following data is stored locally on your device only and is never transmitted to our servers:</p>
 
-    <h2>Notifications</h2>
-    <p>If you grant notification permission (Android 13+ requires explicit opt-in), VisaGo may send local notifications for:</p>
-    <ul>
-        <li>Trip departure reminders (30, 14, 7, and 1 day before departure)</li>
-        <li>Passport expiry warnings</li>
-        <li>Visa stay expiry alerts</li>
-    </ul>
-    <p>These notifications are generated entirely on your device and are <strong>not</strong> sent through any external push notification service.</p>
+<ul>
+    <li><strong>Passport information</strong> — Your selected nationality, passport expiry dates, and multi-passport configurations</li>
+    <li><strong>Trip data</strong> — Saved destinations, travel dates, and trip checklist progress</li>
+    <li><strong>Documents</strong> — Photos and scans of travel documents (passports, visas, insurance, flight bookings) stored in the Document Holder</li>
+    <li><strong>Visa stay records</strong> — Active visa stays and Schengen calculator entries</li>
+    <li><strong>Currency preferences</strong> — Your selected currencies and conversion history</li>
+    <li><strong>App preferences</strong> — Language selection, notification settings, and display preferences</li>
+</ul>
 
-    <h2>Data Sharing</h2>
-    <p>We do not sell, trade, or share your personal data with any third parties. The only data that leaves your device is:</p>
-    <ul>
-        <li>Standard analytics collected by Google AdMob (for ad-supported users)</li>
-        <li>Purchase transaction data handled by Google Play Billing</li>
-    </ul>
+<p>This data exists only on your device. If you uninstall the app, this data is permanently deleted. We cannot access, view, or recover this data.</p>
 
-    <h2>Children's Privacy</h2>
-    <p>VisaGo is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us so we can take appropriate action.</p>
+<h2>2. Data We Collect</h2>
 
-    <h2>Your Rights</h2>
-    <p>Since all data is stored locally on your device, you have full control over your data at all times. You can:</p>
-    <ul>
-        <li>View and modify your data directly within the app</li>
-        <li>Delete all data by uninstalling the app</li>
-        <li>Clear app data through your device's system settings</li>
-    </ul>
+<h3>2.1 Analytics Data</h3>
+<p>We collect anonymous usage analytics to understand how the app is used and to improve it. This includes:</p>
 
-    <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Any changes will be reflected in the "Last Updated" date at the top of this page. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+<ul>
+    <li>Which screens and features are used most frequently</li>
+    <li>App crashes and error reports</li>
+    <li>General device information (OS version, screen size, device model)</li>
+    <li>Country-level location (derived from your IP address, not GPS)</li>
+    <li>App version and language setting</li>
+</ul>
 
-    <h2>Contact Us</h2>
-    <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
-    <p><a href="mailto:support@visago.dev">support@visago.dev</a></p>
+<p>Analytics data is anonymous and cannot be used to identify you personally. We use Google Firebase Analytics for this purpose.</p>
+
+<h3>2.2 Subscription Data</h3>
+<p>If you purchase a premium subscription, the transaction is processed entirely by Google Play. We receive:</p>
+
+<ul>
+    <li>Confirmation that a subscription is active</li>
+    <li>The subscription plan type (monthly or annual)</li>
+    <li>Subscription status (active, cancelled, expired)</li>
+</ul>
+
+<p>We do not receive or store your payment method, credit card number, or billing address. All payment processing is handled by Google Play in accordance with their privacy policy.</p>
+
+<h3>2.3 Referral and Promo Codes</h3>
+<p>If you enter a referral code during onboarding, we store the code to attribute your download to the referring partner. If you redeem a promo code for premium access, the code is validated against our server and marked as used. We store:</p>
+
+<ul>
+    <li>The referral code you entered (if any)</li>
+    <li>The promo code you redeemed (if any)</li>
+    <li>The timestamp of redemption</li>
+</ul>
+
+<p>This data is used solely for partner commission tracking and cannot be used to identify you personally.</p>
+
+<h3>2.4 Partner Applications</h3>
+<p>If you apply to the VisaGo Partner Program through our website, we collect the information you provide in the application form: name, email, partner type, platform, audience size, website, and any additional message. This data is stored on Cloudflare's infrastructure and used exclusively to process your partner application.</p>
+
+<h2>3. Data We Do Not Collect</h2>
+
+<p>We want to be explicit about what we do not do:</p>
+
+<ul>
+    <li><strong>No advertising.</strong> VisaGo does not display ads of any kind. We do not share data with advertising networks.</li>
+    <li><strong>No data selling.</strong> We never sell, rent, or trade your personal information to third parties.</li>
+    <li><strong>No GPS tracking.</strong> We do not access your device's GPS or precise location.</li>
+    <li><strong>No contact access.</strong> We do not access your contacts, phone calls, or messages.</li>
+    <li><strong>No document transmission.</strong> Photos and documents stored in the Document Holder never leave your device.</li>
+    <li><strong>No account system.</strong> The app does not require you to create an account with a username and password.</li>
+</ul>
+
+<h2>4. Third-Party Services</h2>
+
+<p>VisaGo uses the following third-party services:</p>
+
+<ul>
+    <li><strong>Google Firebase Analytics</strong> — Anonymous app usage analytics. <a href="https://firebase.google.com/support/privacy">Firebase Privacy Policy</a></li>
+    <li><strong>Google Play Billing</strong> — Subscription payment processing. <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+    <li><strong>Cloudflare</strong> — Promo code validation and partner dashboard hosting. <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a></li>
+</ul>
+
+<h2>5. Data Retention</h2>
+
+<p>Local data on your device persists until you delete it within the app or uninstall the app. Analytics data is retained for up to 14 months by Firebase Analytics. Subscription records are retained by Google Play according to their retention policies. Partner application data is retained until the application is processed and for a reasonable period afterward.</p>
+
+<h2>6. Your Rights</h2>
+
+<p>You have the right to:</p>
+
+<ul>
+    <li><strong>Delete your local data</strong> at any time by clearing app data in your device settings or uninstalling the app</li>
+    <li><strong>Opt out of analytics</strong> by disabling usage data sharing in your device settings</li>
+    <li><strong>Request deletion of partner application data</strong> by emailing us</li>
+    <li><strong>Cancel your subscription</strong> at any time through Google Play</li>
+</ul>
+
+<h3>For European Users (GDPR)</h3>
+<p>If you are located in the European Economic Area, you have additional rights under the General Data Protection Regulation, including the right to access, rectification, erasure, and data portability. Since we store minimal data and most data exists only on your device, exercising these rights is straightforward. Contact us for any GDPR-related requests.</p>
+
+<h3>For California Users (CCPA)</h3>
+<p>If you are a California resident, you have the right to know what personal information we collect, to request deletion, and to opt out of the sale of personal information. We do not sell personal information.</p>
+
+<h2>7. Children's Privacy</h2>
+
+<p>VisaGo is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us and we will promptly delete it.</p>
+
+<h2>8. Security</h2>
+
+<p>Your local data is protected by your device's built-in security (screen lock, encryption). Data transmitted to our promo code validation server uses HTTPS encryption. We do not store passwords or sensitive authentication credentials on our servers.</p>
+
+<h2>9. Changes to This Policy</h2>
+
+<p>We may update this privacy policy from time to time. The "Last updated" date at the top will be revised accordingly. We encourage you to review this page periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+<h2>10. Contact Us</h2>
+
+<p>If you have questions about this privacy policy or your data, contact us at:</p>
+
+<p><a href="mailto:support@visago.dev">support@visago.dev</a></p>
+
 </div>
 
 <footer>
     <div>
         <a href="/">Home</a>
-        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
         <a href="mailto:support@visago.dev">Contact</a>
     </div>
-    <p style="margin-top: 16px;">&copy; 2026 VisaGo. All rights reserved.</p>
+    <p>&copy; 2026 VisaGo. All rights reserved.</p>
 </footer>
 
 </body>
