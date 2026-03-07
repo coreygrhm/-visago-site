@@ -96,7 +96,7 @@
         .nav-links a{color:var(--text-secondary);font-size:14px;font-weight:500;transition:color 0.2s}
         .nav-links a:hover{color:var(--text)}
         .nav-cta{
-            background:var(--orange);color:#fff;padding:8px 18px;border-radius:8px;
+            background:var(--orange);color:#fff !important;padding:8px 18px;border-radius:8px;
             font-size:13px;font-weight:600;transition:transform 0.2s,box-shadow 0.2s;
         }
         .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,111,0,0.3)}
@@ -543,6 +543,12 @@ async function submitWaitlist(){
 }
 document.getElementById("waitlistEmail").addEventListener("keyup",function(e){if(e.key==="Enter")submitWaitlist()});
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/twemoji.min.js"></script>
+<script>
+if(typeof twemoji!=="undefined"){twemoji.parse(document.body,{folder:"svg",ext:".svg",base:"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/"});}
+</script>
+<style>img.emoji{height:1em;width:1em;margin:0 .1em;vertical-align:-0.1em}</style>
 
 </body>
 </html>
