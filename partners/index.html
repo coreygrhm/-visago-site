@@ -3,217 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisaGo Partner Program — Earn by Recommending VisaGo</title>
-    <meta name="description" content="Partner with VisaGo and earn commission by recommending the travel visa app to your guests, followers, and clients. Free to join.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>VisaGo Partner Program</title>
+    <meta name="description" content="Partner with VisaGo and earn commission by recommending the travel visa app.">
+    <link rel="icon" type="image/png" href="../icon.png">
+    <link rel="canonical" href="https://visago.dev/partners/">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --bg:#0c0c14;--surface:#14141f;--card:#1a1a28;
-            --orange:#FF6F00;--orange-glow:rgba(255,111,0,0.15);
-            --green:#22c55e;--green-glow:rgba(34,197,94,0.12);
-            --text:#f0f0f5;--text-secondary:#b0b0c0;--text-muted:#707088;
-            --border:rgba(255,255,255,0.05);--border-hover:rgba(255,111,0,0.2);
-        }
+        :root{--bg:#0c0c14;--surface:#14141f;--card:#1a1a28;--orange:#FF6F00;--orange-glow:rgba(255,111,0,0.15);--green:#22c55e;--green-glow:rgba(34,197,94,0.12);--text:#f0f0f5;--text-secondary:#b0b0c0;--text-muted:#707088;--border:rgba(255,255,255,0.05);--border-hover:rgba(255,111,0,0.2)}
         body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
         a{color:inherit;text-decoration:none}
-
-        /* NAV */
-        .top-nav{
-            padding:16px 28px;display:flex;align-items:center;justify-content:space-between;
-            border-bottom:1px solid var(--border);background:rgba(12,12,20,0.85);backdrop-filter:blur(20px);
-        }
-        .top-nav-brand{font-size:20px;font-weight:800;letter-spacing:-0.5px}
-        .top-nav-brand span{color:var(--orange)}
+        .top-nav{padding:16px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(12,12,20,0.85);backdrop-filter:blur(20px)}
+        .top-nav-brand{font-size:20px;font-weight:800;letter-spacing:-0.5px}.top-nav-brand span{color:var(--orange)}
         .top-nav-right{display:flex;align-items:center;gap:20px}
-        .top-nav-right a{font-size:14px;color:var(--text-secondary);transition:color 0.2s}
-        .top-nav-right a:hover{color:var(--text)}
-        .signin-link{
-            background:var(--orange);padding:8px 18px;
-            border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
-            color:#fff;transition:all 0.2s;
-        }
-        .signin-link:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,111,0,0.3)}
-
-        /* LANDING HERO */
-        .landing-hero{
-            text-align:center;padding:80px 24px 60px;position:relative;
-        }
-        .landing-hero::before{
-            content:'';position:absolute;top:-10%;left:50%;transform:translateX(-50%);
-            width:600px;height:600px;
-            background:radial-gradient(circle,rgba(255,111,0,0.05) 0%,transparent 70%);
-            pointer-events:none;
-        }
-        .landing-hero h1{
-            font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1px;
-            line-height:1.1;margin-bottom:16px;position:relative;
-        }
+        .top-nav-right a{font-size:14px;color:var(--text-secondary);transition:color 0.2s}.top-nav-right a:hover{color:var(--text)}
+        .signin-link{background:var(--orange);padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;color:#fff;transition:all 0.2s}
+        .signin-link:hover{box-shadow:0 4px 20px rgba(255,111,0,0.3)}
+        .landing-hero{text-align:center;padding:80px 24px 60px;position:relative}
+        .landing-hero::before{content:'';position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,111,0,0.05) 0%,transparent 70%);pointer-events:none}
+        .landing-hero h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;position:relative}
         .landing-hero h1 span{color:var(--orange)}
-        .landing-hero>p{
-            font-size:18px;color:var(--text-secondary);max-width:520px;
-            margin:0 auto 40px;
-        }
-
-        /* HOW IT WORKS */
-        .how-it-works{
-            display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-            gap:16px;max-width:900px;margin:0 auto 64px;padding:0 24px;
-        }
-        .step-card{
-            background:var(--surface);border:1px solid var(--border);border-radius:14px;
-            padding:28px 24px;text-align:center;
-        }
-        .step-number{
-            display:inline-flex;align-items:center;justify-content:center;
-            width:36px;height:36px;border-radius:50%;
-            background:var(--orange-glow);color:var(--orange);
-            font-size:16px;font-weight:800;margin-bottom:14px;
-        }
-        .step-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
-        .step-card p{font-size:13px;color:var(--text-muted);line-height:1.5}
-
-        /* TIERS */
+        .landing-hero>p{font-size:18px;color:var(--text-secondary);max-width:520px;margin:0 auto 40px}
+        .how-it-works{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:900px;margin:0 auto 64px;padding:0 24px}
+        .step-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 24px;text-align:center}
+        .step-number{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--orange-glow);color:var(--orange);font-size:16px;font-weight:800;margin-bottom:14px}
+        .step-card h3{font-size:16px;font-weight:700;margin-bottom:6px}.step-card p{font-size:13px;color:var(--text-muted);line-height:1.5}
         .tiers-section{max-width:900px;margin:0 auto 64px;padding:0 24px}
-        .tiers-section h2{text-align:center;font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px}
+        .tiers-section h2,.benefits-section h2{text-align:center;font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px}
         .tiers-section>p{text-align:center;font-size:16px;color:var(--text-secondary);margin-bottom:32px}
-        .tiers-grid{
-            display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;
-        }
-        .tier-card{
-            background:var(--surface);border:1px solid var(--border);border-radius:14px;
-            padding:28px 24px;transition:border-color 0.2s;
-        }
+        .tiers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+        .tier-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:border-color 0.2s}
         .tier-card:hover{border-color:var(--border-hover)}
-        .tier-icon{font-size:28px;margin-bottom:10px}
-        .tier-card h3{font-size:18px;font-weight:700;margin-bottom:4px}
+        .tier-icon{font-size:28px;margin-bottom:10px}.tier-card h3{font-size:18px;font-weight:700;margin-bottom:4px}
         .tier-card .tier-subtitle{font-size:13px;color:var(--orange);font-weight:600;margin-bottom:12px}
-        .tier-card ul{list-style:none}
-        .tier-card li{font-size:14px;color:var(--text-secondary);padding:4px 0}
+        .tier-card ul{list-style:none}.tier-card li{font-size:14px;color:var(--text-secondary);padding:4px 0}
         .tier-card li::before{content:"\2713\0020";color:var(--orange);font-weight:700}
-
-        /* WHAT YOU GET */
         .benefits-section{max-width:900px;margin:0 auto 64px;padding:0 24px}
-        .benefits-section h2{text-align:center;font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:32px}
-        .benefits-grid{
-            display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;
-        }
-        .benefit-card{
-            background:var(--surface);border:1px solid var(--border);border-radius:14px;
-            padding:24px 20px;
-        }
-        .benefit-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
-        .benefit-card p{font-size:13px;color:var(--text-muted);line-height:1.5}
-
-        /* APPLICATION FORM */
+        .benefits-section h2{margin-bottom:32px}
+        .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+        .benefit-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 20px}
+        .benefit-card h4{font-size:15px;font-weight:700;margin-bottom:6px}.benefit-card p{font-size:13px;color:var(--text-muted);line-height:1.5}
         .landing-cta{text-align:center;padding:0 24px 72px}
-        .landing-cta-box{
-            max-width:640px;margin:0 auto;
-            background:linear-gradient(135deg,var(--surface),var(--card));
-            border:1px solid var(--border);border-radius:20px;padding:48px 32px;
-        }
+        .landing-cta-box{max-width:640px;margin:0 auto;background:linear-gradient(135deg,var(--surface),var(--card));border:1px solid var(--border);border-radius:20px;padding:48px 32px}
         .landing-cta-box h2{font-size:26px;font-weight:800;margin-bottom:10px;text-align:center}
-
-        /* SHARED FORM STYLES */
         .input-group{margin-bottom:16px;text-align:left}
-        .input-group label{
-            display:block;font-size:12px;font-weight:600;color:var(--text-muted);
-            margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;
-        }
-        .input-group input, .input-group select, .input-group textarea{
-            width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);
-            background:var(--bg);color:#fff;font-size:16px;outline:none;
-            font-family:inherit;transition:border-color 0.2s;
-        }
-        .input-group select{appearance:none;cursor:pointer}
-        .input-group textarea{resize:vertical;line-height:1.5}
-        .input-group input:focus, .input-group select:focus, .input-group textarea:focus{border-color:var(--orange)}
-
-        .btn-primary-form{
-            width:100%;padding:14px;border-radius:8px;border:none;
-            background:var(--orange);color:#fff;font-size:16px;font-weight:700;
-            cursor:pointer;margin-top:8px;font-family:inherit;transition:all 0.2s;
-        }
+        .input-group label{display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+        .input-group input,.input-group select,.input-group textarea{width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:var(--bg);color:#fff;font-size:16px;outline:none;font-family:inherit;transition:border-color 0.2s}
+        .input-group select{appearance:none;cursor:pointer}.input-group textarea{resize:vertical;line-height:1.5}
+        .input-group input:focus,.input-group select:focus,.input-group textarea:focus{border-color:var(--orange)}
+        .btn-primary-form{width:100%;padding:14px;border-radius:8px;border:none;background:var(--orange);color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px;font-family:inherit;transition:all 0.2s}
         .btn-primary-form:hover{box-shadow:0 4px 20px rgba(255,111,0,0.3)}
         .btn-primary-form:disabled{opacity:0.5;cursor:not-allowed}
         .form-error{color:#ff6b6b;font-size:14px;margin-top:12px}
-
-        .btn-outline{
-            display:inline-flex;align-items:center;gap:8px;
-            background:transparent;color:var(--text-secondary);padding:14px 28px;border-radius:10px;
-            font-size:15px;font-weight:600;border:1px solid var(--border);transition:all 0.2s;cursor:pointer;
-        }
+        .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text-secondary);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;border:1px solid var(--border);transition:all 0.2s;cursor:pointer}
         .btn-outline:hover{border-color:var(--border-hover);color:var(--text)}
-
-        /* LOGIN */
-        .login-section{padding:72px 24px;display:none}
-        .login-section.active{display:block}
-        .login-box{
-            background:var(--surface);border-radius:16px;padding:40px 32px;
-            max-width:400px;margin:0 auto;text-align:center;
-        }
+        .login-section{padding:72px 24px;display:none}.login-section.active{display:block}
+        .login-box{background:var(--surface);border-radius:16px;padding:40px 32px;max-width:400px;margin:0 auto;text-align:center}
         .login-box h2{font-size:24px;font-weight:700;margin-bottom:4px}
         .login-box .subtitle{color:var(--text-muted);margin-bottom:28px;font-size:14px}
-        .login-btn{
-            width:100%;padding:14px;border-radius:8px;border:none;
-            background:var(--orange);color:#fff;font-size:16px;font-weight:700;
-            cursor:pointer;margin-top:8px;font-family:inherit;transition:all 0.2s;
-        }
+        .login-btn{width:100%;padding:14px;border-radius:8px;border:none;background:var(--orange);color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px;font-family:inherit;transition:all 0.2s}
         .login-btn:hover{box-shadow:0 4px 20px rgba(255,111,0,0.3)}
         .login-btn:disabled{opacity:0.5;cursor:not-allowed}
         .login-error{color:#ff6b6b;font-size:14px;margin-top:12px}
-        .login-back{
-            display:inline-block;margin-top:16px;font-size:13px;color:var(--text-muted);
-            cursor:pointer;transition:color 0.2s;
-        }
-        .login-back:hover{color:var(--text)}
-
-        /* DASHBOARD */
-        .dashboard{display:none;padding:24px;max-width:900px;margin:0 auto}
-        .dashboard.active{display:block}
+        .login-back{display:inline-block;margin-top:16px;font-size:13px;color:var(--text-muted);cursor:pointer;transition:color 0.2s}.login-back:hover{color:var(--text)}
+        .dashboard{display:none;padding:24px;max-width:900px;margin:0 auto}.dashboard.active{display:block}
         .landing-page.hidden{display:none}
-
-        .dash-header{
-            display:flex;justify-content:space-between;align-items:center;
-            margin-bottom:32px;flex-wrap:wrap;gap:12px;
-        }
-        .dash-header h1{font-size:24px;font-weight:700}
-        .dash-header .partner-info{font-size:14px;color:var(--text-muted)}
-        .logout-btn{
-            padding:8px 16px;border-radius:6px;border:1px solid rgba(255,255,255,0.08);
-            background:transparent;color:var(--text-muted);font-size:13px;
-            cursor:pointer;font-family:inherit;
-        }
+        .dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+        .dash-header h1{font-size:24px;font-weight:700}.dash-header .partner-info{font-size:14px;color:var(--text-muted)}
+        .logout-btn{padding:8px 16px;border-radius:6px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:var(--text-muted);font-size:13px;cursor:pointer;font-family:inherit}
         .logout-btn:hover{border-color:#ff6b6b;color:#ff6b6b}
-
-        .referral-link-box{
-            background:var(--surface);border-radius:12px;padding:20px 24px;
-            margin-bottom:24px;display:flex;align-items:center;
-            justify-content:space-between;flex-wrap:wrap;gap:12px;
-        }
+        .referral-link-box{background:var(--surface);border-radius:12px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
         .referral-link-box .label{font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
         .referral-link-box .link{font-size:18px;font-weight:600;color:var(--orange);word-break:break-all}
-        .copy-btn{
-            padding:10px 20px;border-radius:8px;border:none;
-            background:var(--orange);color:#fff;font-weight:700;font-size:14px;
-            cursor:pointer;font-family:inherit;
-        }
+        .copy-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--orange);color:#fff;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
         .copy-btn:hover{box-shadow:0 4px 20px rgba(255,111,0,0.3)}
-
-        .stat-grid{
-            display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-            gap:16px;margin-bottom:32px;
-        }
+        .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px}
         .stat-card{background:var(--surface);border-radius:12px;padding:20px 24px}
-        .stat-card .stat-label{font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
-        .stat-card .stat-value{font-size:32px;font-weight:700}
-        .stat-card .stat-sub{font-size:13px;color:var(--text-muted);margin-top:4px}
-        .stat-card .stat-change{font-size:13px;margin-top:4px}
-        .stat-change.up{color:var(--green)}
-        .stat-change.down{color:#ff6b6b}
-
+        .stat-card .stat-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
+        .stat-card .stat-value{font-size:28px;font-weight:700}.stat-card .stat-sub{font-size:13px;color:var(--text-muted);margin-top:4px}
+        .stat-card .stat-change{font-size:13px;margin-top:4px}.stat-change.up{color:var(--green)}.stat-change.down{color:#ff6b6b}
         .chart-section{background:var(--surface);border-radius:12px;padding:24px;margin-bottom:24px}
         .chart-section h2{font-size:16px;font-weight:600;margin-bottom:16px}
         .chart-bar-row{display:flex;align-items:center;margin-bottom:8px;gap:12px}
@@ -221,531 +89,245 @@
         .chart-bar-track{flex:1;height:24px;background:var(--bg);border-radius:4px;overflow:hidden}
         .chart-bar-fill{height:100%;background:var(--orange);border-radius:4px;transition:width 0.5s ease;min-width:2px}
         .chart-bar-value{font-size:13px;color:var(--text);width:40px;flex-shrink:0}
-
         .platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
         .platform-card{background:var(--bg);border-radius:8px;padding:12px;text-align:center}
-        .platform-card .platform-icon{font-size:24px;margin-bottom:4px}
-        .platform-card .platform-value{font-size:20px;font-weight:700}
-        .platform-card .platform-label{font-size:12px;color:var(--text-muted)}
-
-        .conversions-section{background:var(--surface);border-radius:12px;padding:24px;margin-bottom:24px}
-        .conversions-section h2{font-size:16px;font-weight:600;margin-bottom:16px}
+        .platform-card .platform-icon{font-size:24px;margin-bottom:4px}.platform-card .platform-value{font-size:20px;font-weight:700}.platform-card .platform-label{font-size:12px;color:var(--text-muted)}
+        .conversions-section,.materials-section,.leaderboard-section,.invite-section{background:var(--surface);border-radius:12px;padding:24px;margin-bottom:24px}
+        .conversions-section h2,.materials-section h2,.leaderboard-section h2,.invite-section h2{font-size:16px;font-weight:600;margin-bottom:16px}
         .conv-table{width:100%;border-collapse:collapse}
         .conv-table th{text-align:left;font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.08)}
         .conv-table td{padding:10px 12px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.04)}
         .conv-empty{text-align:center;color:var(--text-muted);padding:32px;font-size:14px}
-
-        /* FOOTER */
-        .site-footer{
-            padding:32px 24px;text-align:center;border-top:1px solid var(--border);margin-top:48px;
-        }
-        .site-footer a{color:var(--text-muted);font-size:13px;margin:0 12px;transition:color 0.2s}
-        .site-footer a:hover{color:var(--text)}
+        .material-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+        .material-card{background:var(--bg);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:border-color 0.2s;border:1px solid var(--border)}
+        .material-card:hover{border-color:var(--border-hover)}
+        .material-card .mat-icon{font-size:32px;margin-bottom:8px}.material-card h4{font-size:14px;font-weight:700;margin-bottom:4px}
+        .material-card p{font-size:12px;color:var(--text-muted)}
+        .material-card a{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--orange);text-decoration:none}
+        .lb-row{display:flex;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.04);gap:12px}
+        .lb-rank{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+        .lb-rank.gold{background:rgba(255,183,0,0.15);color:#ffb700}.lb-rank.silver{background:rgba(192,192,192,0.15);color:#c0c0c0}
+        .lb-rank.bronze{background:rgba(205,127,50,0.15);color:#cd7f32}.lb-rank.normal{background:var(--bg);color:var(--text-muted)}
+        .lb-name{flex:1;font-size:14px;font-weight:500}.lb-type{font-size:12px;color:var(--text-muted)}.lb-clicks{font-size:14px;font-weight:700;color:var(--orange)}
+        .invite-link-box{background:var(--bg);border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+        .invite-link-box .inv-link{font-size:14px;font-weight:500;color:var(--orange);word-break:break-all}
+        .invite-copy{padding:8px 16px;border-radius:6px;border:none;background:var(--orange);color:#fff;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;flex-shrink:0}
+        .invite-info{font-size:13px;color:var(--text-muted);line-height:1.5}
+        .dash-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+        .dash-tab{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;background:var(--surface);color:var(--text-muted);border:1px solid var(--border);transition:all 0.2s}
+        .dash-tab.active{background:var(--orange-glow);color:var(--orange);border-color:rgba(255,111,0,0.3)}
+        .dash-tab:hover{color:var(--text)}
+        .tab-content{display:none}.tab-content.active{display:block}
+        .site-footer{padding:32px 24px;text-align:center;border-top:1px solid var(--border);margin-top:48px}
+        .site-footer a{color:var(--text-muted);font-size:13px;margin:0 12px;transition:color 0.2s}.site-footer a:hover{color:var(--text)}
         .site-footer p{color:var(--text-muted);font-size:12px;margin-top:12px}
-
-        @media(max-width:768px){
-            .top-nav{padding:12px 18px}
-            .landing-hero{padding:60px 18px 48px}
-            .how-it-works{gap:12px}
-            .landing-cta-box{padding:32px 20px}
-        }
-        @media(max-width:480px){
-            .stat-grid{grid-template-columns:repeat(2,1fr)}
-            .referral-link-box{flex-direction:column;align-items:flex-start}
-            .dash-header{flex-direction:column;align-items:flex-start}
-        }
+        @media(max-width:768px){.top-nav{padding:12px 18px}.landing-hero{padding:60px 18px 48px}.landing-cta-box{padding:32px 20px}.material-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:480px){.stat-grid{grid-template-columns:repeat(2,1fr)}.referral-link-box{flex-direction:column;align-items:flex-start}.dash-header{flex-direction:column;align-items:flex-start}.material-grid{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
-
-<!-- NAV -->
 <div class="top-nav">
-    <a href="https://visago.dev" class="top-nav-brand">Visa<span>Go</span> Partners</a>
-    <div class="top-nav-right">
-        <a href="https://visago.dev">Main Site</a>
-        <span class="signin-link" onclick="showLogin()">Partner Sign In</span>
-    </div>
+    <a href="/" class="top-nav-brand">Visa<span>Go</span> Partners</a>
+    <div class="top-nav-right"><a href="/">Main Site</a><span class="signin-link" onclick="showLogin()">Partner Sign In</span></div>
 </div>
 
-<!-- LANDING PAGE -->
 <div class="landing-page" id="landingPage">
-
     <div class="landing-hero">
         <h1>Earn by Helping<br>Travelers <span>Go Smarter</span></h1>
         <p>Join the VisaGo Partner Program. Recommend the app, earn commission on every premium subscriber, and help travelers avoid visa scams.</p>
     </div>
-
     <div class="how-it-works">
-        <div class="step-card">
-            <div class="step-number">1</div>
-            <h3>Sign Up</h3>
-            <p>Get your unique referral link, dashboard access, and free premium for yourself.</p>
-        </div>
-        <div class="step-card">
-            <div class="step-number">2</div>
-            <h3>Share</h3>
-            <p>Share your link with guests, followers, or clients. We provide QR signs, cards, and digital assets.</p>
-        </div>
-        <div class="step-card">
-            <div class="step-number">3</div>
-            <h3>Earn</h3>
-            <p>Earn commission on every premium subscription through your link. Track everything in real time.</p>
-        </div>
+        <div class="step-card"><div class="step-number">1</div><h3>Sign Up</h3><p>Get your unique referral link, dashboard access, and free premium for yourself.</p></div>
+        <div class="step-card"><div class="step-number">2</div><h3>Share</h3><p>Share your link with guests, followers, or clients. We provide QR signs, cards, and digital assets.</p></div>
+        <div class="step-card"><div class="step-number">3</div><h3>Earn</h3><p>Earn commission on every premium subscription through your link. Track everything in real time.</p></div>
     </div>
-
     <div class="tiers-section">
-        <h2>Partner Tiers</h2>
-        <p>Different programs for different partners. All free to join.</p>
+        <h2>Partner Tiers</h2><p>Different programs for different partners. All free to join.</p>
         <div class="tiers-grid">
-            <div class="tier-card">
-                <div class="tier-icon">🏨</div>
-                <h3>Hostels, B&Bs & Spaces</h3>
-                <div class="tier-subtitle">20-25% commission</div>
-                <ul>
-                    <li>Unique QR code for your location</li>
-                    <li>Printable sign template</li>
-                    <li>Free premium for the owner</li>
-                    <li>Real-time click & conversion tracking</li>
-                    <li>Monthly payouts via PayPal or Wise</li>
-                </ul>
-            </div>
-            <div class="tier-card">
-                <div class="tier-icon">📱</div>
-                <h3>Influencers & Creators</h3>
-                <div class="tier-subtitle">Up to 35% commission</div>
-                <ul>
-                    <li>Free lifetime premium access</li>
-                    <li>Unique shareable referral link</li>
-                    <li>Commission scales with audience size</li>
-                    <li>Real-time analytics dashboard</li>
-                    <li>Monthly payouts via PayPal or Wise</li>
-                </ul>
-            </div>
-            <div class="tier-card">
-                <div class="tier-icon">🤝</div>
-                <h3>Travel Businesses</h3>
-                <div class="tier-subtitle">Custom arrangement</div>
-                <ul>
-                    <li>Insurance, visa agencies, flight platforms</li>
-                    <li>Cross-promotion opportunities</li>
-                    <li>Mutual referral arrangements</li>
-                    <li>Dedicated partner support</li>
-                    <li>Flexible commission structure</li>
-                </ul>
-            </div>
+            <div class="tier-card"><div class="tier-icon">🏨</div><h3>Hostels, B&Bs & Spaces</h3><div class="tier-subtitle">20-25% commission</div><ul><li>Unique QR code for your location</li><li>Printable poster &amp; desk card</li><li>Free premium for the owner</li><li>Real-time click &amp; conversion tracking</li><li>Monthly payouts via PayPal or Wise</li></ul></div>
+            <div class="tier-card"><div class="tier-icon">📱</div><h3>Influencers & Creators</h3><div class="tier-subtitle">Up to 35% commission</div><ul><li>Free lifetime premium access</li><li>Unique shareable referral link</li><li>Social media templates</li><li>Real-time analytics dashboard</li><li>Monthly payouts via PayPal or Wise</li></ul></div>
+            <div class="tier-card"><div class="tier-icon">🤝</div><h3>Travel Businesses</h3><div class="tier-subtitle">Custom arrangement</div><ul><li>Insurance, visa agencies, flight platforms</li><li>Cross-promotion opportunities</li><li>Mutual referral arrangements</li><li>Dedicated partner support</li><li>Flexible commission structure</li></ul></div>
         </div>
     </div>
-
     <div class="benefits-section">
         <h2>What Every Partner Gets</h2>
         <div class="benefits-grid">
-            <div class="benefit-card">
-                <h4>📊 Real-Time Dashboard</h4>
-                <p>Track clicks, conversions, and earnings in real time. See which days and platforms drive the most downloads.</p>
-            </div>
-            <div class="benefit-card">
-                <h4>🔗 Unique Referral Link</h4>
-                <p>Your personalized link (visago.dev/r/you) auto-detects the visitor's device and sends them to the right app store.</p>
-            </div>
-            <div class="benefit-card">
-                <h4>⭐ Free Premium Access</h4>
-                <p>Every partner gets free lifetime premium. Use the app yourself so you can genuinely recommend it.</p>
-            </div>
-            <div class="benefit-card">
-                <h4>🖨️ Physical Materials</h4>
-                <p>Printable QR code signs and business card templates with your unique referral code. Ready to print locally.</p>
-            </div>
-            <div class="benefit-card">
-                <h4>💰 Monthly Payouts</h4>
-                <p>Commission paid monthly via PayPal or Wise. $25 minimum payout threshold. No setup fees, ever.</p>
-            </div>
-            <div class="benefit-card">
-                <h4>🤝 Charity Impact</h4>
-                <p>Every subscription you drive helps fund refugee family support. Your referrals do more than earn commission.</p>
-            </div>
+            <div class="benefit-card"><h4>📊 Real-Time Dashboard</h4><p>Track clicks, conversions, and earnings. See which days and platforms drive the most downloads.</p></div>
+            <div class="benefit-card"><h4>🔗 Unique Referral Link</h4><p>Your link auto-detects the visitor's device and sends them to the right app store.</p></div>
+            <div class="benefit-card"><h4>⭐ Free Premium Access</h4><p>Every partner gets free lifetime premium. Use the app yourself to genuinely recommend it.</p></div>
+            <div class="benefit-card"><h4>🖨️ Marketing Materials</h4><p>Auto-generated posters, desk cards, stickers, and social templates with your QR code.</p></div>
+            <div class="benefit-card"><h4>💰 Monthly Payouts</h4><p>Commission paid monthly via PayPal or Wise. $25 minimum payout. No setup fees.</p></div>
+            <div class="benefit-card"><h4>👥 Invite &amp; Earn More</h4><p>Recruit other partners and earn 5% of their revenue. Build your own referral network.</p></div>
         </div>
     </div>
-
-    <!-- APPLICATION FORM -->
     <div class="landing-cta" id="applySection">
         <div class="landing-cta-box" style="text-align:left">
             <h2>Apply to Partner</h2>
-            <p style="text-align:center;margin-bottom:32px;color:var(--text-secondary)">Takes 2 minutes. We'll review your application and get back to you within 24 hours.</p>
-
+            <p style="text-align:center;margin-bottom:32px;color:var(--text-secondary)">Takes 2 minutes. We'll review and get back within 24 hours.</p>
             <div id="applicationForm">
-                <div class="input-group">
-                    <label>Your Name *</label>
-                    <input type="text" id="appName" placeholder="Full name or business name">
-                </div>
-                <div class="input-group">
-                    <label>Email *</label>
-                    <input type="email" id="appEmail" placeholder="you@example.com">
-                </div>
-                <div class="input-group">
-                    <label>Partner Type *</label>
-                    <select id="appType">
-                        <option value="" disabled selected>Select your type...</option>
-                        <option value="hostel">Hostel / B&amp;B / Guesthouse</option>
-                        <option value="cowork">Co-working Space</option>
-                        <option value="influencer">Influencer / Content Creator</option>
-                        <option value="blogger">Travel Blogger / Course Creator</option>
-                        <option value="podcast">Podcast Host</option>
-                        <option value="tour_operator">Tour Operator</option>
-                        <option value="visa_agency">Visa Agency</option>
-                        <option value="insurance">Travel Insurance Company</option>
-                        <option value="language_school">Language School</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Platform / Location</label>
-                    <input type="text" id="appPlatform" placeholder="e.g., Instagram, Hostel in Bangkok, Travel blog">
-                </div>
-                <div class="input-group">
-                    <label>Audience or Guest Volume</label>
-                    <select id="appAudience">
-                        <option value="" disabled selected>Select range...</option>
-                        <option value="under_1k">Under 1,000</option>
-                        <option value="1k_10k">1,000 - 10,000</option>
-                        <option value="10k_50k">10,000 - 50,000</option>
-                        <option value="50k_100k">50,000 - 100,000</option>
-                        <option value="100k_plus">100,000+</option>
-                        <option value="physical">Physical location (guests/month)</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Website or Social Link</label>
-                    <input type="text" id="appWebsite" placeholder="https://...">
-                </div>
-                <div class="input-group">
-                    <label>Anything else?</label>
-                    <textarea id="appMessage" rows="3" placeholder="Tell us about your audience or why you'd be a great partner..."></textarea>
-                </div>
+                <div class="input-group"><label>Your Name *</label><input type="text" id="appName" placeholder="Full name or business name"></div>
+                <div class="input-group"><label>Email *</label><input type="email" id="appEmail" placeholder="you@example.com"></div>
+                <div class="input-group"><label>Partner Type *</label><select id="appType"><option value="" disabled selected>Select your type...</option><option value="hostel">Hostel / B&amp;B / Guesthouse</option><option value="cowork">Co-working Space</option><option value="influencer">Influencer / Content Creator</option><option value="blogger">Travel Blogger / Course Creator</option><option value="podcast">Podcast Host</option><option value="tour_operator">Tour Operator</option><option value="visa_agency">Visa Agency</option><option value="insurance">Travel Insurance Company</option><option value="language_school">Language School</option><option value="other">Other</option></select></div>
+                <div class="input-group"><label>Platform / Location</label><input type="text" id="appPlatform" placeholder="e.g., Instagram, Hostel in Bangkok"></div>
+                <div class="input-group"><label>Audience or Guest Volume</label><select id="appAudience"><option value="" disabled selected>Select range...</option><option value="under_1k">Under 1,000</option><option value="1k_10k">1,000 - 10,000</option><option value="10k_50k">10,000 - 50,000</option><option value="50k_100k">50,000 - 100,000</option><option value="100k_plus">100,000+</option><option value="physical">Physical location (guests/month)</option></select></div>
+                <div class="input-group"><label>Website or Social Link</label><input type="text" id="appWebsite" placeholder="https://..."></div>
+                <div class="input-group"><label>Anything else?</label><textarea id="appMessage" rows="3" placeholder="Tell us about your audience..."></textarea></div>
+                <input type="hidden" id="appReferredBy" value="">
                 <button class="btn-primary-form" id="submitAppBtn" onclick="submitApplication()">Submit Application</button>
                 <div class="form-error" id="appError"></div>
             </div>
-
             <div id="applicationSuccess" style="display:none;text-align:center;padding:24px 0">
                 <div style="font-size:48px;margin-bottom:16px">🎉</div>
                 <h3 style="font-size:22px;margin-bottom:8px">Application Received!</h3>
-                <p style="color:var(--text-secondary);font-size:16px;margin-bottom:24px">We'll review your application and get back to you within 24 hours with your referral link and dashboard access.</p>
+                <p style="color:var(--text-secondary);font-size:16px;margin-bottom:24px">We'll get back within 24 hours with your referral link and dashboard access.</p>
                 <span class="btn-outline" onclick="showLogin()">Already have credentials? Sign In</span>
             </div>
-
-            <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--text-muted)">
-                Already a partner? <span style="color:var(--orange);cursor:pointer;font-weight:600" onclick="showLogin()">Sign in to your dashboard</span>
-            </p>
+            <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--text-muted)">Already a partner? <span style="color:var(--orange);cursor:pointer;font-weight:600" onclick="showLogin()">Sign in to your dashboard</span></p>
         </div>
     </div>
-
 </div>
 
-<!-- LOGIN SECTION -->
 <div class="login-section" id="loginSection">
     <div class="login-box">
-        <h2>Partner Sign In</h2>
-        <div class="subtitle">Access your referral dashboard</div>
-        <div class="input-group">
-            <label>Partner ID</label>
-            <input type="text" id="partnerId" placeholder="e.g., sarah" autocomplete="off">
-        </div>
-        <div class="input-group">
-            <label>PIN</label>
-            <input type="password" id="partnerPin" placeholder="4-digit PIN" maxlength="6" autocomplete="off">
-        </div>
+        <h2>Partner Sign In</h2><div class="subtitle">Access your referral dashboard</div>
+        <div class="input-group"><label>Partner ID</label><input type="text" id="partnerId" placeholder="e.g., sarah" autocomplete="off"></div>
+        <div class="input-group"><label>PIN</label><input type="password" id="partnerPin" placeholder="4-digit PIN" maxlength="6" autocomplete="off"></div>
         <button class="login-btn" id="loginBtn" onclick="login()">Sign In</button>
         <div class="login-error" id="loginError"></div>
-        <div class="login-back" onclick="showLanding()">&larr; Back to Partner Program</div>
+        <div class="login-back" onclick="showLanding()">← Back to Partner Program</div>
     </div>
 </div>
 
-<!-- DASHBOARD -->
 <div class="dashboard" id="dashboard">
-    <div class="dash-header">
-        <div>
-            <h1>Partner Dashboard</h1>
-            <div class="partner-info" id="partnerName"></div>
-        </div>
-        <button class="logout-btn" onclick="logout()">Sign Out</button>
+    <div class="dash-header"><div><h1>Partner Dashboard</h1><div class="partner-info" id="partnerName"></div></div><button class="logout-btn" onclick="logout()">Sign Out</button></div>
+    <div class="referral-link-box"><div><div class="label">Your Referral Link</div><div class="link" id="referralLink"></div></div><button class="copy-btn" onclick="copyLink()">Copy Link</button></div>
+
+    <div class="dash-tabs">
+        <div class="dash-tab active" onclick="switchTab('overview')">Overview</div>
+        <div class="dash-tab" onclick="switchTab('materials')">Materials</div>
+        <div class="dash-tab" onclick="switchTab('leaderboard')">Leaderboard</div>
+        <div class="dash-tab" onclick="switchTab('invite')">Invite Partners</div>
     </div>
 
-    <div class="referral-link-box">
-        <div>
-            <div class="label">Your Referral Link</div>
-            <div class="link" id="referralLink"></div>
+    <div class="tab-content active" id="tab-overview">
+        <div class="stat-grid">
+            <div class="stat-card"><div class="stat-label">Total Clicks</div><div class="stat-value" id="totalClicks">&mdash;</div></div>
+            <div class="stat-card"><div class="stat-label">This Month</div><div class="stat-value" id="monthClicks">&mdash;</div><div class="stat-change" id="monthChange"></div></div>
+            <div class="stat-card"><div class="stat-label">Conversions</div><div class="stat-value" id="totalConversions">&mdash;</div><div class="stat-sub" id="conversionRate"></div></div>
+            <div class="stat-card"><div class="stat-label">Earnings</div><div class="stat-value" id="totalEarnings">&mdash;</div><div class="stat-sub" id="pendingPayout"></div></div>
+            <div class="stat-card"><div class="stat-label">Partners Invited</div><div class="stat-value" id="partnersReferred">&mdash;</div></div>
         </div>
-        <button class="copy-btn" onclick="copyLink()">Copy Link</button>
-    </div>
-
-    <div class="stat-grid">
-        <div class="stat-card">
-            <div class="stat-label">Total Clicks</div>
-            <div class="stat-value" id="totalClicks">&mdash;</div>
-            <div class="stat-sub" id="clicksSub"></div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">This Month</div>
-            <div class="stat-value" id="monthClicks">&mdash;</div>
-            <div class="stat-change" id="monthChange"></div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Conversions</div>
-            <div class="stat-value" id="totalConversions">&mdash;</div>
-            <div class="stat-sub" id="conversionRate"></div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Earnings</div>
-            <div class="stat-value" id="totalEarnings">&mdash;</div>
-            <div class="stat-sub" id="pendingPayout"></div>
-        </div>
-    </div>
-
-    <div class="chart-section">
-        <h2>Clicks &mdash; Last 14 Days</h2>
-        <div id="clickChart"></div>
-        <div class="platform-grid">
-            <div class="platform-card">
-                <div class="platform-icon">🤖</div>
-                <div class="platform-value" id="androidClicks">0</div>
-                <div class="platform-label">Android</div>
-            </div>
-            <div class="platform-card">
-                <div class="platform-icon">🍎</div>
-                <div class="platform-value" id="iosClicks">0</div>
-                <div class="platform-label">iOS</div>
-            </div>
-            <div class="platform-card">
-                <div class="platform-icon">💻</div>
-                <div class="platform-value" id="desktopClicks">0</div>
-                <div class="platform-label">Desktop</div>
+        <div class="chart-section">
+            <h2>Clicks — Last 14 Days</h2><div id="clickChart"></div>
+            <div class="platform-grid">
+                <div class="platform-card"><div class="platform-icon">🤖</div><div class="platform-value" id="androidClicks">0</div><div class="platform-label">Android</div></div>
+                <div class="platform-card"><div class="platform-icon">🍎</div><div class="platform-value" id="iosClicks">0</div><div class="platform-label">iOS</div></div>
+                <div class="platform-card"><div class="platform-icon">💻</div><div class="platform-value" id="desktopClicks">0</div><div class="platform-label">Desktop</div></div>
             </div>
         </div>
+        <div class="conversions-section"><h2>Recent Conversions</h2><div id="conversionsTable"></div></div>
     </div>
 
-    <div class="conversions-section">
-        <h2>Recent Conversions</h2>
-        <div id="conversionsTable"></div>
+    <div class="tab-content" id="tab-materials">
+        <div class="materials-section" style="background:transparent;padding:0">
+            <h2 style="margin-bottom:8px">Marketing Materials</h2>
+            <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px">Print-ready materials with your unique QR code. Open in browser, then print or save as PDF.</p>
+            <div class="material-grid" id="materialGrid"></div>
+        </div>
+    </div>
+
+    <div class="tab-content" id="tab-leaderboard">
+        <div class="leaderboard-section" style="background:transparent;padding:0">
+            <h2 style="margin-bottom:8px">Partner Leaderboard</h2>
+            <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px">Top partners ranked by total clicks.</p>
+            <div id="leaderboardList"></div>
+        </div>
+    </div>
+
+    <div class="tab-content" id="tab-invite">
+        <div class="invite-section" style="background:transparent;padding:0">
+            <h2 style="margin-bottom:8px">Invite Partners</h2>
+            <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px">Recruit other partners and earn 5% of their revenue.</p>
+            <div class="invite-link-box"><div class="inv-link" id="inviteLink"></div><button class="invite-copy" onclick="copyInvite()">Copy</button></div>
+            <div class="invite-info">Share this link with hostels, influencers, or travel businesses. When they sign up and start generating revenue, you earn 5% of their earnings automatically. There's no limit to how many partners you can invite.</div>
+        </div>
     </div>
 </div>
 
-<!-- FOOTER -->
-<div class="site-footer">
-    <div>
-        <a href="https://visago.dev">VisaGo Home</a>
-        <a href="https://visago.dev/privacy">Privacy</a>
-        <a href="https://visago.dev/terms">Terms</a>
-        <a href="mailto:partners@visago.dev">Contact</a>
-    </div>
-    <p>&copy; 2026 VisaGo. All rights reserved.</p>
-</div>
+<div class="site-footer"><div><a href="/">VisaGo Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:partners@visago.dev">Contact</a></div><p>&copy; 2026 VisaGo. All rights reserved.</p></div>
 
 <script>
-    var API_BASE = "https://codes.visago.dev";
-    var currentPartner = null;
+var API_BASE="https://codes.visago.dev";var currentPartner=null;
 
-    async function submitApplication() {
-        var name = document.getElementById("appName").value.trim();
-        var email = document.getElementById("appEmail").value.trim();
-        var partnerType = document.getElementById("appType").value;
-        var platform = document.getElementById("appPlatform").value.trim();
-        var audienceSize = document.getElementById("appAudience").value;
-        var website = document.getElementById("appWebsite").value.trim();
-        var message = document.getElementById("appMessage").value.trim();
-        var errorEl = document.getElementById("appError");
-        var btn = document.getElementById("submitAppBtn");
+// Check for referral in URL
+var urlParams=new URLSearchParams(window.location.search);
+var refParam=urlParams.get("ref");
+if(refParam){document.getElementById("appReferredBy").value=refParam}
 
-        errorEl.textContent = "";
+function switchTab(t){document.querySelectorAll(".dash-tab").forEach(function(el){el.classList.remove("active")});document.querySelectorAll(".tab-content").forEach(function(el){el.classList.remove("active")});event.target.classList.add("active");document.getElementById("tab-"+t).classList.add("active");if(t==="leaderboard")loadLeaderboard();if(t==="materials")loadMaterials()}
 
-        if (!name || !email || !partnerType) {
-            errorEl.textContent = "Please fill in your name, email, and partner type.";
-            return;
-        }
-        if (!email.includes("@") || !email.includes(".")) {
-            errorEl.textContent = "Please enter a valid email address.";
-            return;
-        }
+async function submitApplication(){
+    var name=document.getElementById("appName").value.trim();var email=document.getElementById("appEmail").value.trim();
+    var partnerType=document.getElementById("appType").value;var platform=document.getElementById("appPlatform").value.trim();
+    var audienceSize=document.getElementById("appAudience").value;var website=document.getElementById("appWebsite").value.trim();
+    var message=document.getElementById("appMessage").value.trim();var referredBy=document.getElementById("appReferredBy").value.trim();
+    var errorEl=document.getElementById("appError");var btn=document.getElementById("submitAppBtn");
+    errorEl.textContent="";
+    if(!name||!email||!partnerType){errorEl.textContent="Please fill in name, email, and partner type.";return}
+    if(!email.includes("@")||!email.includes(".")){errorEl.textContent="Please enter a valid email.";return}
+    btn.disabled=true;btn.textContent="Submitting...";
+    try{var res=await fetch(API_BASE+"/partner/apply",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:name,email:email,partner_type:partnerType,platform:platform,audience_size:audienceSize,website:website,message:message,referred_by:referredBy})});
+    var data=await res.json();if(data.status==="ok"){document.getElementById("applicationForm").style.display="none";document.getElementById("applicationSuccess").style.display="block"}else{errorEl.textContent=data.message||"Something went wrong."}}catch(e){errorEl.textContent="Connection error. Try again."}
+    btn.disabled=false;btn.textContent="Submit Application"}
 
-        btn.disabled = true;
-        btn.textContent = "Submitting...";
+function showLogin(){document.getElementById("landingPage").classList.add("hidden");document.getElementById("loginSection").classList.add("active");document.getElementById("dashboard").classList.remove("active")}
+function showLanding(){document.getElementById("landingPage").classList.remove("hidden");document.getElementById("loginSection").classList.remove("active");document.getElementById("dashboard").classList.remove("active")}
+function showDashboard(){document.getElementById("landingPage").classList.add("hidden");document.getElementById("loginSection").classList.remove("active");document.getElementById("dashboard").classList.add("active");document.getElementById("partnerName").textContent=currentPartner.partner_name;document.getElementById("referralLink").textContent="visago.dev/r/"+currentPartner.id;document.getElementById("inviteLink").textContent="visago.dev/partners/?ref="+currentPartner.id}
 
-        try {
-            var res = await fetch(API_BASE + "/partner/apply", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: name, email: email, partner_type: partnerType,
-                    platform: platform, audience_size: audienceSize,
-                    website: website, message: message
-                })
-            });
-            var data = await res.json();
+async function login(){var partnerId=document.getElementById("partnerId").value.trim().toLowerCase();var pin=document.getElementById("partnerPin").value.trim();var errorEl=document.getElementById("loginError");var btn=document.getElementById("loginBtn");errorEl.textContent="";btn.disabled=true;btn.textContent="Signing in...";
+try{var res=await fetch(API_BASE+"/partner/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({partner_id:partnerId,pin:pin})});var data=await res.json();if(data.status==="ok"){currentPartner={id:partnerId,pin:pin,...data.partner};showDashboard();loadStats()}else{errorEl.textContent=data.message||"Invalid credentials."}}catch(e){errorEl.textContent="Connection error."}
+btn.disabled=false;btn.textContent="Sign In"}
 
-            if (data.status === "ok") {
-                document.getElementById("applicationForm").style.display = "none";
-                document.getElementById("applicationSuccess").style.display = "block";
-            } else {
-                errorEl.textContent = data.message || "Something went wrong. Please try again.";
-            }
-        } catch (e) {
-            errorEl.textContent = "Connection error. Please try again.";
-        }
+function logout(){currentPartner=null;document.getElementById("partnerId").value="";document.getElementById("partnerPin").value="";showLanding()}
+function copyLink(){navigator.clipboard.writeText("https://visago.dev/r/"+currentPartner.id).then(function(){var b=document.querySelector(".copy-btn");b.textContent="Copied!";setTimeout(function(){b.textContent="Copy Link"},2000)})}
+function copyInvite(){navigator.clipboard.writeText("https://visago.dev/partners/?ref="+currentPartner.id).then(function(){var b=document.querySelector(".invite-copy");b.textContent="Copied!";setTimeout(function(){b.textContent="Copy"},2000)})}
 
-        btn.disabled = false;
-        btn.textContent = "Submit Application";
-    }
+async function loadStats(){try{var res=await fetch(API_BASE+"/partner/stats",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({partner_id:currentPartner.id,pin:currentPartner.pin})});var data=await res.json();if(data.status!=="ok")return;
+document.getElementById("totalClicks").textContent=(data.partner.total_clicks||0).toLocaleString();
+var mt=data.current_month.total||0;var pt=data.previous_month.total||0;document.getElementById("monthClicks").textContent=mt.toLocaleString();
+if(pt>0){var ch=Math.round(((mt-pt)/pt)*100);var ce=document.getElementById("monthChange");ce.textContent=(ch>=0?"+":"")+ch+"% vs last month";ce.className="stat-change "+(ch>=0?"up":"down")}
+document.getElementById("totalConversions").textContent=data.conversions.total||0;
+var tc=data.partner.total_clicks||0;if(tc>0){document.getElementById("conversionRate").textContent=((data.conversions.total/tc)*100).toFixed(1)+"% rate"}
+var e=data.conversions.total_commission||0;document.getElementById("totalEarnings").textContent="$"+e.toFixed(2);
+var pe=data.conversions.pending_payout||0;if(pe>0){document.getElementById("pendingPayout").textContent="$"+pe.toFixed(2)+" pending"}
+document.getElementById("partnersReferred").textContent=data.partner.partners_referred||0;
+document.getElementById("androidClicks").textContent=data.current_month.android||0;
+document.getElementById("iosClicks").textContent=data.current_month.ios||0;
+document.getElementById("desktopClicks").textContent=data.current_month.desktop||0;
+renderClickChart(data.current_month.days||{},data.previous_month.days||{});renderConversions(data.conversions.recent||[])
+}catch(e){console.error("Stats error:",e)}}
 
-    function showLogin() {
-        document.getElementById("landingPage").classList.add("hidden");
-        document.getElementById("loginSection").classList.add("active");
-        document.getElementById("dashboard").classList.remove("active");
-    }
+function loadMaterials(){var g=document.getElementById("materialGrid");var id=currentPartner.id;var base="https://codes.visago.dev/material/"+id;
+g.innerHTML='<div class="material-card" onclick="window.open(\''+base+'/poster\',\'_blank\')"><div class="mat-icon">📋</div><h4>A4 Poster</h4><p>Print-ready poster with QR code for reception or common area.</p><a href="'+base+'/poster" target="_blank">Open →</a></div>'+
+'<div class="material-card" onclick="window.open(\''+base+'/desk-card\',\'_blank\')"><div class="mat-icon">🪧</div><h4>Desk Card</h4><p>Table-top card for reception desks and check-in counters.</p><a href="'+base+'/desk-card" target="_blank">Open →</a></div>'+
+'<div class="material-card" onclick="window.open(\''+base+'/sticker\',\'_blank\')"><div class="mat-icon">🏷️</div><h4>Sticker</h4><p>Round sticker for bulletin boards, doors, and wifi signs.</p><a href="'+base+'/sticker" target="_blank">Open →</a></div>'+
+'<div class="material-card" onclick="window.open(\''+base+'/social\',\'_blank\')"><div class="mat-icon">📱</div><h4>Social Media</h4><p>Square image for Instagram, Facebook, and social posts.</p><a href="'+base+'/social" target="_blank">Open →</a></div>'}
 
-    function showLanding() {
-        document.getElementById("landingPage").classList.remove("hidden");
-        document.getElementById("loginSection").classList.remove("active");
-        document.getElementById("dashboard").classList.remove("active");
-    }
+async function loadLeaderboard(){var el=document.getElementById("leaderboardList");el.innerHTML='<div class="conv-empty">Loading...</div>';
+try{var res=await fetch(API_BASE+"/leaderboard");var data=await res.json();if(data.status!=="ok")return;
+if(data.leaderboard.length===0){el.innerHTML='<div class="conv-empty">No partners yet. Be the first!</div>';return}
+el.innerHTML=data.leaderboard.map(function(p,i){var rank=i+1;var rc=rank<=1?"gold":rank<=2?"silver":rank<=3?"bronze":"normal";
+return'<div class="lb-row"><div class="lb-rank '+rc+'">'+rank+'</div><div class="lb-name">'+p.name+'<div class="lb-type">'+p.type+'</div></div><div class="lb-clicks">'+p.clicks+' clicks</div></div>'}).join("")
+}catch(e){el.innerHTML='<div class="conv-empty">Could not load leaderboard.</div>'}}
 
-    function showDashboard() {
-        document.getElementById("landingPage").classList.add("hidden");
-        document.getElementById("loginSection").classList.remove("active");
-        document.getElementById("dashboard").classList.add("active");
-        document.getElementById("partnerName").textContent = currentPartner.partner_name;
-        document.getElementById("referralLink").textContent = "visago.dev/r/" + currentPartner.id;
-    }
+function renderClickChart(cd,pd){var el=document.getElementById("clickChart");var today=new Date();var days=[];for(var i=13;i>=0;i--){var d=new Date(today);d.setDate(d.getDate()-i);var k=d.toISOString().split("T")[0];var l=d.toLocaleDateString("en",{month:"short",day:"numeric"});days.push({key:k,label:l,clicks:cd[k]||pd[k]||0})}
+var mx=Math.max.apply(null,days.map(function(d){return d.clicks}).concat([1]));el.innerHTML=days.map(function(d){return'<div class="chart-bar-row"><div class="chart-bar-label">'+d.label+'</div><div class="chart-bar-track"><div class="chart-bar-fill" style="width:'+(d.clicks/mx*100)+'%"></div></div><div class="chart-bar-value">'+d.clicks+'</div></div>'}).join("")}
 
-    async function login() {
-        var partnerId = document.getElementById("partnerId").value.trim().toLowerCase();
-        var pin = document.getElementById("partnerPin").value.trim();
-        var errorEl = document.getElementById("loginError");
-        var btn = document.getElementById("loginBtn");
+function renderConversions(r){var el=document.getElementById("conversionsTable");if(r.length===0){el.innerHTML='<div class="conv-empty">No conversions yet. Share your referral link!</div>';return}
+el.innerHTML='<table class="conv-table"><thead><tr><th>Date</th><th>Plan</th><th>Revenue</th><th>Commission</th></tr></thead><tbody>'+r.map(function(c){return'<tr><td>'+c.date+'</td><td>'+c.plan+'</td><td>$'+(c.revenue||0).toFixed(2)+'</td><td>$'+(c.commission||0).toFixed(2)+'</td></tr>'}).join("")+'</tbody></table>'}
 
-        errorEl.textContent = "";
-        btn.disabled = true;
-        btn.textContent = "Signing in...";
-
-        try {
-            var res = await fetch(API_BASE + "/partner/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ partner_id: partnerId, pin: pin })
-            });
-            var data = await res.json();
-
-            if (data.status === "ok") {
-                currentPartner = { id: partnerId, pin: pin, ...data.partner };
-                showDashboard();
-                loadStats();
-            } else {
-                errorEl.textContent = data.message || "Invalid credentials.";
-            }
-        } catch (e) {
-            errorEl.textContent = "Connection error. Please try again.";
-        }
-
-        btn.disabled = false;
-        btn.textContent = "Sign In";
-    }
-
-    function logout() {
-        currentPartner = null;
-        document.getElementById("partnerId").value = "";
-        document.getElementById("partnerPin").value = "";
-        showLanding();
-    }
-
-    function copyLink() {
-        var link = "https://visago.dev/r/" + currentPartner.id;
-        navigator.clipboard.writeText(link).then(function() {
-            var btn = document.querySelector(".copy-btn");
-            btn.textContent = "Copied!";
-            setTimeout(function() { btn.textContent = "Copy Link"; }, 2000);
-        });
-    }
-
-    async function loadStats() {
-        try {
-            var res = await fetch(API_BASE + "/partner/stats", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ partner_id: currentPartner.id, pin: currentPartner.pin })
-            });
-            var data = await res.json();
-            if (data.status !== "ok") return;
-
-            document.getElementById("totalClicks").textContent = (data.partner.total_clicks || 0).toLocaleString();
-
-            var monthTotal = data.current_month.total || 0;
-            var prevTotal = data.previous_month.total || 0;
-            document.getElementById("monthClicks").textContent = monthTotal.toLocaleString();
-
-            if (prevTotal > 0) {
-                var change = Math.round(((monthTotal - prevTotal) / prevTotal) * 100);
-                var changeEl = document.getElementById("monthChange");
-                changeEl.textContent = (change >= 0 ? "+" : "") + change + "% vs last month";
-                changeEl.className = "stat-change " + (change >= 0 ? "up" : "down");
-            }
-
-            document.getElementById("totalConversions").textContent = data.conversions.total || 0;
-            var totalClicksNum = data.partner.total_clicks || 0;
-            if (totalClicksNum > 0) {
-                var rate = ((data.conversions.total / totalClicksNum) * 100).toFixed(1);
-                document.getElementById("conversionRate").textContent = rate + "% conversion rate";
-            }
-
-            var earnings = data.conversions.total_commission || 0;
-            document.getElementById("totalEarnings").textContent = "$" + earnings.toFixed(2);
-            var pending = data.conversions.pending_payout || 0;
-            if (pending > 0) {
-                document.getElementById("pendingPayout").textContent = "$" + pending.toFixed(2) + " pending";
-            }
-
-            document.getElementById("androidClicks").textContent = data.current_month.android || 0;
-            document.getElementById("iosClicks").textContent = data.current_month.ios || 0;
-            document.getElementById("desktopClicks").textContent = data.current_month.desktop || 0;
-
-            renderClickChart(data.current_month.days || {}, data.previous_month.days || {});
-            renderConversions(data.conversions.recent || []);
-        } catch (e) {
-            console.error("Failed to load stats:", e);
-        }
-    }
-
-    function renderClickChart(currentDays, prevDays) {
-        var chartEl = document.getElementById("clickChart");
-        var today = new Date();
-        var days = [];
-        for (var i = 13; i >= 0; i--) {
-            var d = new Date(today);
-            d.setDate(d.getDate() - i);
-            var key = d.toISOString().split("T")[0];
-            var label = d.toLocaleDateString("en", { month: "short", day: "numeric" });
-            days.push({ key: key, label: label, clicks: currentDays[key] || prevDays[key] || 0 });
-        }
-        var maxClicks = Math.max.apply(null, days.map(function(d) { return d.clicks; }).concat([1]));
-        chartEl.innerHTML = days.map(function(d) {
-            return '<div class="chart-bar-row">' +
-                '<div class="chart-bar-label">' + d.label + '</div>' +
-                '<div class="chart-bar-track"><div class="chart-bar-fill" style="width:' + (d.clicks / maxClicks * 100) + '%"></div></div>' +
-                '<div class="chart-bar-value">' + d.clicks + '</div></div>';
-        }).join("");
-    }
-
-    function renderConversions(records) {
-        var el = document.getElementById("conversionsTable");
-        if (records.length === 0) {
-            el.innerHTML = '<div class="conv-empty">No conversions yet. Share your referral link to get started!</div>';
-            return;
-        }
-        var rows = records.map(function(r) {
-            return '<tr><td>' + r.date + '</td><td>' + r.plan + '</td><td>$' + (r.revenue || 0).toFixed(2) + '</td><td>$' + (r.commission || 0).toFixed(2) + '</td></tr>';
-        }).join("");
-        el.innerHTML = '<table class="conv-table"><thead><tr><th>Date</th><th>Plan</th><th>Revenue</th><th>Commission</th></tr></thead><tbody>' + rows + '</tbody></table>';
-    }
-
-    document.getElementById("partnerPin").addEventListener("keyup", function(e) { if (e.key === "Enter") login(); });
-    document.getElementById("partnerId").addEventListener("keyup", function(e) { if (e.key === "Enter") document.getElementById("partnerPin").focus(); });
+document.getElementById("partnerPin").addEventListener("keyup",function(e){if(e.key==="Enter")login()});
+document.getElementById("partnerId").addEventListener("keyup",function(e){if(e.key==="Enter")document.getElementById("partnerPin").focus()});
 </script>
-
 </body>
 </html>
