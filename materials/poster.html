@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisaGo — Partner Poster</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:0;size:A4 portrait}}
+        body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;padding:20px}
+        .controls{margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+        .controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+        .btn-print{background:#FF6F00;color:#fff}.btn-dark{background:#1a1a28;color:#fff}
+        .poster{width:595px;min-height:842px;background:#fff;color:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 48px;position:relative;border:2px solid #FF6F00;box-shadow:0 4px 24px rgba(0,0,0,0.1)}
+        .poster.dark{background:#0c0c14;color:#f0f0f5;border-color:#FF6F00}
+        .logo{font-size:32px;font-weight:800;margin-bottom:48px}.logo span{color:#FF6F00}
+        .headline{font-size:38px;font-weight:800;line-height:1.15;margin-bottom:12px}
+        .poster.dark .headline{color:#f0f0f5}
+        .subhead{font-size:18px;color:#666;margin-bottom:48px}
+        .poster.dark .subhead{color:#b0b0c0}
+        .qr-wrapper{padding:16px;background:#fff;border-radius:16px;margin-bottom:16px;display:inline-block}
+        .qr{width:200px;height:200px;border-radius:8px}
+        .scan-text{font-size:14px;color:#888;margin-bottom:40px}
+        .poster.dark .scan-text{color:#707088}
+        .features{display:flex;gap:32px;margin-bottom:40px;flex-wrap:wrap;justify-content:center}
+        .feat{font-size:14px;color:#555;display:flex;align-items:center;gap:6px}
+        .poster.dark .feat{color:#b0b0c0}
+        .feat-dot{width:8px;height:8px;border-radius:50%;background:#FF6F00;flex-shrink:0}
+        .bottom-bar{display:flex;align-items:center;justify-content:center;gap:24px;padding-top:24px;border-top:1px solid #eee;width:100%}
+        .poster.dark .bottom-bar{border-color:rgba(255,255,255,0.08)}
+        .bottom-bar span{font-size:13px;color:#888}
+        .poster.dark .bottom-bar span{color:#707088}
+        .partner-credit{font-size:13px;color:#aaa;margin-top:24px}
+        .poster.dark .partner-credit{color:#555}
+        .url-text{font-size:13px;color:#888;margin-bottom:8px;font-weight:500}
+        .poster.dark .url-text{color:#707088}
+    </style>
+</head>
+<body>
+    <div class="controls no-print">
+        <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+        <button class="btn-dark" onclick="toggleDark()">🌙 Toggle Dark Version</button>
+    </div>
+    <div class="poster" id="poster">
+        <div class="logo">Visa<span>Go</span></div>
+        <div class="headline">Heading to your<br>next country?</div>
+        <div class="subhead">Make sure you can get in.</div>
+        <div class="qr-wrapper"><img class="qr" id="qrImg" src="" alt="QR Code"></div>
+        <div class="url-text" id="urlText"></div>
+        <div class="scan-text">Scan to check visa requirements instantly</div>
+        <div class="features">
+            <div class="feat"><div class="feat-dot"></div>199 Countries</div>
+            <div class="feat"><div class="feat-dot"></div>Works Offline</div>
+            <div class="feat"><div class="feat-dot"></div>Free Download</div>
+        </div>
+        <div class="bottom-bar">
+            <span>✈️ Visa Requirements</span>
+            <span>📋 Trip Checklists</span>
+            <span>💱 Currency Converter</span>
+        </div>
+        <div class="partner-credit" id="partnerCredit"></div>
+    </div>
+    <script>
+        var params=new URLSearchParams(window.location.search);
+        var partnerId=params.get("ref")||params.get("partner")||"partner";
+        var partnerName=params.get("name")||"";
+        var url="https://visago.dev/r/"+partnerId;
+        document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
+        document.getElementById("urlText").textContent=url;
+        if(partnerName){document.getElementById("partnerCredit").textContent="Recommended by "+partnerName}
+        function toggleDark(){document.getElementById("poster").classList.toggle("dark")}
+    </script>
+</body>
+</html>

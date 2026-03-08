@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisaGo — Email Templates</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'DM Sans',system-ui,sans-serif;background:#0c0c14;color:#f0f0f5;padding:24px;line-height:1.6}
+        h1{font-size:28px;font-weight:800;text-align:center;margin-bottom:8px}
+        .intro{text-align:center;font-size:15px;color:#b0b0c0;margin-bottom:40px}
+        .template{background:#14141f;border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:32px;margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto}
+        .template h2{font-size:18px;font-weight:700;margin-bottom:4px;color:#FF6F00}
+        .template .use-case{font-size:13px;color:#707088;margin-bottom:16px}
+        .template pre{background:#0c0c14;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:20px;font-size:14px;color:#e0e0e0;white-space:pre-wrap;word-wrap:break-word;font-family:inherit;line-height:1.7;overflow-x:auto}
+        .copy-btn{display:inline-block;margin-top:12px;padding:8px 16px;border-radius:6px;border:none;background:#FF6F00;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+        .copy-btn:hover{box-shadow:0 4px 16px rgba(255,111,0,0.3)}
+        .note{font-size:12px;color:#707088;margin-top:8px}
+    </style>
+</head>
+<body>
+    <h1>Email Templates</h1>
+    <p class="intro">Copy and customize these templates for your audience. Replace [brackets] with your info.</p>
+
+    <div class="template">
+        <h2>Travel Agency — Client Email</h2>
+        <div class="use-case">Send to clients before their trip to help them prepare.</div>
+        <pre id="email1">Subject: Before your trip — check your visa requirements
+
+Hi [Client Name],
+
+Before your upcoming trip to [Destination], I wanted to make sure you have everything you need to enter the country smoothly.
+
+I recommend downloading VisaGo — it's a free app that shows you exactly what visa and documents you need for your destination. It covers 199 countries and works offline, so you can check requirements even when you're traveling.
+
+Download here: REFERRAL_LINK
+
+Key features:
+- Instant visa requirement checks for any passport
+- Document checklists specific to your destination
+- Schengen 90/180 day calculator for Europe trips
+- Currency converter
+- Works without internet
+
+It's free to download with optional premium features.
+
+Safe travels,
+[Your Name]
+[Agency Name]</pre>
+        <button class="copy-btn" onclick="copyEmail('email1')">Copy Template</button>
+    </div>
+
+    <div class="template">
+        <h2>Insurance Company — Customer Email</h2>
+        <div class="use-case">Include in post-purchase communications to insurance customers.</div>
+        <pre id="email2">Subject: Traveling soon? Don't forget to check visa requirements
+
+Hi [Customer Name],
+
+Now that your travel insurance is sorted, here's one more thing to check before you go — visa requirements.
+
+VisaGo is a free app that tells you instantly whether you need a visa, what documents to prepare, and how long you can stay. It covers 199 countries and works offline.
+
+Download: REFERRAL_LINK
+
+Many travelers assume they can enter a country visa-free, only to find out at the airport that they need documentation. A quick 30-second check now can save a major headache later.
+
+Travel safe,
+[Company Name]</pre>
+        <button class="copy-btn" onclick="copyEmail('email2')">Copy Template</button>
+    </div>
+
+    <div class="template">
+        <h2>Hostel — Guest Welcome Message</h2>
+        <div class="use-case">Send to guests at check-in or include in your welcome guide.</div>
+        <pre id="email3">Welcome to [Hostel Name]! 🎒
+
+Here's a quick tip for planning your next stop:
+
+📱 Need to check visa requirements for your next country?
+Download VisaGo — it's free and works offline: REFERRAL_LINK
+
+It tells you instantly if you need a visa, what documents to bring, and even calculates your Schengen days if you're traveling in Europe.
+
+Happy travels!
+[Hostel Name] Team</pre>
+        <button class="copy-btn" onclick="copyEmail('email3')">Copy Template</button>
+    </div>
+
+    <div class="template">
+        <h2>Co-working Space — Member Bulletin</h2>
+        <div class="use-case">Share in your Slack channel, newsletter, or community board.</div>
+        <pre id="email4">Hey nomads 👋
+
+Planning your next visa run or country hop? Check out VisaGo — a free app that shows visa requirements for 199 countries.
+
+It has a Schengen calculator (know exactly where you stand on the 90/180 rule), visa stay tracker with expiry alerts, and it works completely offline.
+
+Download: REFERRAL_LINK
+
+Useful for anyone who's ever asked "do I need a visa for [country]?" in the group chat 😄</pre>
+        <button class="copy-btn" onclick="copyEmail('email4')">Copy Template</button>
+    </div>
+
+    <div class="template">
+        <h2>Partner Recruitment — Cold Outreach</h2>
+        <div class="use-case">Use this to invite other businesses to become VisaGo partners.</div>
+        <pre id="email5">Subject: Earn commission recommending a travel app to your [guests/followers/clients]
+
+Hi [Name],
+
+I'm Corey, the creator of VisaGo — a travel app that helps travelers check visa requirements for 199 countries.
+
+I noticed [their business/account] and think your [guests/audience/clients] would find it genuinely useful. I'd love to partner with you:
+
+What you get:
+- Your own referral link and QR code
+- 20-35% commission on every premium subscription you refer
+- Free lifetime premium access for yourself
+- Print-ready marketing materials with your unique QR code
+- Real-time dashboard to track clicks and earnings
+
+It takes 2 minutes to apply: https://visago.dev/partners/
+
+Happy to answer any questions.
+
+Cheers,
+Corey
+VisaGo — visago.dev</pre>
+        <button class="copy-btn" onclick="copyEmail('email5')">Copy Template</button>
+    </div>
+
+    <div class="template">
+        <h2>Social Media Captions</h2>
+        <div class="use-case">Copy-paste for Instagram, TikTok, or Twitter posts.</div>
+        <pre id="email6">CAPTION 1 (Educational):
+Travel tip that's saved me multiple times 🧳
+
+Before booking any flight, I check visa requirements with VisaGo. Takes literally 30 seconds.
+
+It covers 199 countries, works offline, and even has a Schengen calculator for Europe.
+
+Free to download: REFERRAL_LINK
+
+#traveltips #digitalnomad #visarequirements #backpacking
+
+---
+
+CAPTION 2 (Story-driven):
+Almost got turned away at the border last month 😅
+
+Turns out I needed a visa I didn't know about. Now I check every country before I book — takes 30 seconds with VisaGo.
+
+199 countries. Works offline. Free.
+
+REFERRAL_LINK
+
+#travelproblems #visacheck #backpackerlife
+
+---
+
+CAPTION 3 (Listicle):
+5 things to check before your next international trip:
+
+1. Passport expiry (6 months minimum!)
+2. Visa requirements ← VisaGo does this
+3. Travel insurance
+4. Currency exchange rates ← VisaGo does this too
+5. Outlet adapters
+
+Free download: REFERRAL_LINK
+
+#travelpacking #travelchecklist</pre>
+        <button class="copy-btn" onclick="copyEmail('email6')">Copy Template</button>
+    </div>
+
+    <script>
+        var params=new URLSearchParams(window.location.search);
+        var partnerId=params.get("ref")||"partner";
+        var url="https://visago.dev/r/"+partnerId;
+        // Replace all REFERRAL_LINK placeholders
+        document.querySelectorAll("pre").forEach(function(el){
+            el.textContent=el.textContent.replace(/REFERRAL_LINK/g,url);
+        });
+        function copyEmail(id){
+            var text=document.getElementById(id).textContent;
+            navigator.clipboard.writeText(text).then(function(){
+                var btn=event.target;btn.textContent="Copied!";
+                setTimeout(function(){btn.textContent="Copy Template"},2000);
+            });
+        }
+    </script>
+</body>
+</html>

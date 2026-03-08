@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisaGo — Sticker</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:20mm}}
+        body{font-family:system-ui,sans-serif;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;padding:20px}
+        .controls{margin-bottom:20px}
+        .controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;background:#FF6F00;color:#fff;font-family:inherit}
+        .sticker-sheet{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+        .sticker{width:200px;height:200px;border-radius:50%;border:3px solid #FF6F00;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px}
+        .s-logo{font-size:15px;font-weight:800;margin-bottom:6px}.s-logo span{color:#FF6F00}
+        .s-qr{width:80px;height:80px;border-radius:6px;margin-bottom:6px}
+        .s-text{font-size:10px;color:#888;font-weight:500}
+        .note{font-size:12px;color:#888;margin-top:16px;text-align:center}
+    </style>
+</head>
+<body>
+    <div class="controls no-print">
+        <button onclick="window.print()">🖨️ Print Sticker Sheet</button>
+        <p class="note">Prints 4 stickers per sheet. Cut along the circle borders.</p>
+    </div>
+    <div class="sticker-sheet">
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
+    </div>
+    <script>
+        var params=new URLSearchParams(window.location.search);
+        var partnerId=params.get("ref")||"partner";
+        var url="https://visago.dev/r/"+partnerId;
+        var qrSrc="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+encodeURIComponent(url);
+        document.querySelectorAll(".qr-img").forEach(function(img){img.src=qrSrc});
+    </script>
+</body>
+</html>
