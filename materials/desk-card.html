@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisaGo — Desk Card</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:20mm}}
+        body{font-family:system-ui,sans-serif;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;padding:20px}
+        .controls{margin-bottom:20px;display:flex;gap:12px}
+        .controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+        .btn-print{background:#FF6F00;color:#fff}
+        .card{width:420px;height:260px;background:#fff;border-radius:16px;display:flex;align-items:center;padding:32px;gap:28px;border:2px solid #FF6F00;box-shadow:0 2px 16px rgba(0,0,0,0.08)}
+        .left{flex:1}.right{flex-shrink:0}
+        .logo{font-size:20px;font-weight:800;margin-bottom:16px}.logo span{color:#FF6F00}
+        .headline{font-size:22px;font-weight:800;line-height:1.2;margin-bottom:8px;color:#1a1a1a}
+        .sub{font-size:13px;color:#666;margin-bottom:16px;line-height:1.4}
+        .partner{font-size:11px;color:#aaa}
+        .qr-wrap{padding:8px;background:#fff;border-radius:12px;border:1px solid #eee}
+        .qr{width:140px;height:140px;border-radius:6px}
+        .scan{font-size:10px;color:#888;text-align:center;margin-top:6px}
+        .fold-line{width:420px;border-top:1px dashed #ccc;margin:12px 0}
+        .fold-label{font-size:10px;color:#ccc;text-align:center}
+    </style>
+</head>
+<body>
+    <div class="controls no-print">
+        <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+        <p style="font-size:12px;color:#888;margin-top:8px">Print, cut along border, fold to stand upright on a desk.</p>
+    </div>
+    <div class="card">
+        <div class="left">
+            <div class="logo">Visa<span>Go</span></div>
+            <div class="headline">Need a visa?<br>Check before you go.</div>
+            <div class="sub">Scan the QR code for instant visa requirements, trip checklists, and more.</div>
+            <div class="partner" id="partnerCredit"></div>
+        </div>
+        <div class="right">
+            <div class="qr-wrap"><img class="qr" id="qrImg" src="" alt="QR"></div>
+            <div class="scan">Scan me</div>
+        </div>
+    </div>
+    <div class="fold-line no-print"></div>
+    <div class="fold-label no-print">↑ fold here for tent card ↑</div>
+    <script>
+        var params=new URLSearchParams(window.location.search);
+        var partnerId=params.get("ref")||"partner";
+        var partnerName=params.get("name")||"";
+        var url="https://visago.dev/r/"+partnerId;
+        document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
+        if(partnerName){document.getElementById("partnerCredit").textContent=partnerName}
+    </script>
+</body>
+</html>
