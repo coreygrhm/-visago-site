@@ -254,9 +254,9 @@
     </div>
 </div>
 
-<div class="site-footer"><div><a href="/">VisaGo Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cdn-cgi/l/email-protection#43332231372d26313003352a3022242c6d272635">Contact</a></div><p>&copy; 2026 VisaGo. All rights reserved.</p></div>
+<div class="site-footer"><div><a href="/">VisaGo Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:partners@visago.dev">Contact</a></div><p>&copy; 2026 VisaGo. All rights reserved.</p></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var API_BASE="https://codes.visago.dev";var currentPartner=null;
 
 // Check for referral in URL
@@ -331,4 +331,7 @@ function renderConversions(r){var el=document.getElementById("conversionsTable")
 el.innerHTML='<table class="conv-table"><thead><tr><th>Date</th><th>Plan</th><th>Revenue</th><th>Commission</th></tr></thead><tbody>'+r.map(function(c){return'<tr><td>'+c.date+'</td><td>'+c.plan+'</td><td>$'+(c.revenue||0).toFixed(2)+'</td><td>$'+(c.commission||0).toFixed(2)+'</td></tr>'}).join("")+'</tbody></table>'}
 
 document.getElementById("partnerPin").addEventListener("keyup",function(e){if(e.key==="Enter")login()});
-document.getElemen
+document.getElementById("partnerId").addEventListener("keyup",function(e){if(e.key==="Enter")document.getElementById("partnerPin").focus()});
+</script>
+</body>
+</html>
