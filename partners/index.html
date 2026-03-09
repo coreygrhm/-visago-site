@@ -254,9 +254,9 @@
     </div>
 </div>
 
-<div class="site-footer"><div><a href="/">VisaGo Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:partners@visago.dev">Contact</a></div><p>&copy; 2026 VisaGo. All rights reserved.</p></div>
+<div class="site-footer"><div><a href="/">VisaGo Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cdn-cgi/l/email-protection#a9d9c8dbddc7ccdbdae9dfc0dac8cec687cdccdf">Contact</a></div><p>&copy; 2026 VisaGo. All rights reserved.</p></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var API_BASE="https://codes.visago.dev";var currentPartner=null;
 
 // Check for referral in URL
@@ -307,15 +307,15 @@ document.getElementById("desktopClicks").textContent=data.current_month.desktop|
 renderClickChart(data.current_month.days||{},data.previous_month.days||{});renderConversions(data.conversions.recent||[])
 }catch(e){console.error("Stats error:",e)}}
 
-function loadMaterials(){var g=document.getElementById("materialGrid");var id=currentPartner.id;var name=encodeURIComponent(currentPartner.partner_name);var base="/materials/";var q="?ref="+id+"&name="+name;
+function loadMaterials(){var g=document.getElementById("materialGrid");var id=currentPartner.id;var name=encodeURIComponent(currentPartner.partner_name);var code=currentPartner.promo_code||"";var base="/materials/";var q="?ref="+id+"&name="+name+(code?"&code="+encodeURIComponent(code):"");
 g.innerHTML='<p style="font-size:13px;color:var(--orange);font-weight:600;margin-bottom:12px;grid-column:1/-1">PRINT MATERIALS (light background, ink-friendly)</p>'+
-'<div class="material-card" onclick="window.open(\''+base+'poster.html'+q+'\',\'_blank\')"><div class="mat-icon">📋</div><h4>A4 Poster</h4><p>Print-ready poster with QR code. Light or dark version.</p><a href="'+base+'poster.html'+q+'" target="_blank">Open →</a></div>'+
+'<div class="material-card" onclick="window.open(\''+base+'poster.html'+q+'\',\'_blank\')"><div class="mat-icon">📋</div><h4>A4 Poster</h4><p>Print-ready poster with QR code and referral code.</p><a href="'+base+'poster.html'+q+'" target="_blank">Open →</a></div>'+
 '<div class="material-card" onclick="window.open(\''+base+'desk-card.html'+q+'\',\'_blank\')"><div class="mat-icon">🪧</div><h4>Desk Card</h4><p>Tent card for reception desks and counters.</p><a href="'+base+'desk-card.html'+q+'" target="_blank">Open →</a></div>'+
 '<div class="material-card" onclick="window.open(\''+base+'sticker.html'+q+'\',\'_blank\')"><div class="mat-icon">🏷️</div><h4>Sticker Sheet</h4><p>4 circular stickers per page. Cut and stick.</p><a href="'+base+'sticker.html'+q+'" target="_blank">Open →</a></div>'+
 '<p style="font-size:13px;color:var(--orange);font-weight:600;margin-bottom:12px;margin-top:16px;grid-column:1/-1">DIGITAL MATERIALS (dark background, for screens)</p>'+
 '<div class="material-card" onclick="window.open(\''+base+'social.html'+q+'\',\'_blank\')"><div class="mat-icon">📱</div><h4>Social Media Cards</h4><p>Instagram feed post + story template with your QR.</p><a href="'+base+'social.html'+q+'" target="_blank">Open →</a></div>'+
 '<p style="font-size:13px;color:var(--orange);font-weight:600;margin-bottom:12px;margin-top:16px;grid-column:1/-1">EMAIL TEMPLATES & CAPTIONS</p>'+
-'<div class="material-card" onclick="window.open(\''+base+'emails.html'+q+'\',\'_blank\')"><div class="mat-icon">✉️</div><h4>Email Templates</h4><p>Agency, hostel, insurance, co-work, and social captions. Copy-paste ready.</p><a href="'+base+'emails.html'+q+'" target="_blank">Open →</a></div>'}
+'<div class="material-card" onclick="window.open(\''+base+'emails.html'+q+'\',\'_blank\')"><div class="mat-icon">✉️</div><h4>Email Templates</h4><p>Agency, hostel, insurance, co-work, and social captions with your code.</p><a href="'+base+'emails.html'+q+'" target="_blank">Open →</a></div>'}
 
 async function loadLeaderboard(){var el=document.getElementById("leaderboardList");el.innerHTML='<div class="conv-empty">Loading...</div>';
 try{var res=await fetch(API_BASE+"/leaderboard");var data=await res.json();if(data.status!=="ok")return;
@@ -331,7 +331,4 @@ function renderConversions(r){var el=document.getElementById("conversionsTable")
 el.innerHTML='<table class="conv-table"><thead><tr><th>Date</th><th>Plan</th><th>Revenue</th><th>Commission</th></tr></thead><tbody>'+r.map(function(c){return'<tr><td>'+c.date+'</td><td>'+c.plan+'</td><td>$'+(c.revenue||0).toFixed(2)+'</td><td>$'+(c.commission||0).toFixed(2)+'</td></tr>'}).join("")+'</tbody></table>'}
 
 document.getElementById("partnerPin").addEventListener("keyup",function(e){if(e.key==="Enter")login()});
-document.getElementById("partnerId").addEventListener("keyup",function(e){if(e.key==="Enter")document.getElementById("partnerPin").focus()});
-</script>
-</body>
-</html>
+document.getElemen
