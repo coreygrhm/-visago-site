@@ -3,26 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisaGo — Desk Card</title>
+    <title>VisaGo — Desk Tent Card</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:20mm}}
+        @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:10mm;size:A4 portrait}}
         body{font-family:system-ui,sans-serif;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;padding:20px}
         .controls{margin-bottom:12px;display:flex;gap:12px}.controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;background:#FF6F00;color:#fff;font-family:inherit}
-        .lang-bar{margin-bottom:20px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+        .lang-bar{margin-bottom:12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
         .lang-btn{padding:6px 14px;border-radius:6px;border:2px solid #ddd;background:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s}
         .lang-btn.active{border-color:#FF6F00;background:#FFF3E0}.lang-btn:hover{border-color:#FF6F00}
-        .card{width:420px;height:260px;background:#fff;border-radius:16px;display:flex;align-items:center;padding:32px;gap:28px;border:2px solid #FF6F00;box-shadow:0 2px 16px rgba(0,0,0,0.08)}
-        .left{flex:1}.right{flex-shrink:0}
-        .logo{font-size:20px;font-weight:800;margin-bottom:16px}.logo span{color:#FF6F00}
-        .headline{font-size:22px;font-weight:800;line-height:1.2;margin-bottom:8px;color:#1a1a1a}
-        .sub{font-size:13px;color:#666;margin-bottom:12px;line-height:1.4;white-space:pre-line}
-        .partner{font-size:11px;color:#aaa}
-        .code{font-size:12px;font-weight:700;color:#FF6F00;margin-top:6px}
-        .qr-wrap{padding:8px;background:#fff;border-radius:12px;border:1px solid #eee}
-        .qr{width:140px;height:140px;border-radius:6px}
-        .scan{font-size:10px;color:#888;text-align:center;margin-top:6px}
-        .note{font-size:12px;color:#888;margin-top:16px;text-align:center}
+        .instructions{font-size:12px;color:#888;margin-bottom:20px;text-align:center;max-width:500px;line-height:1.5}
+        .tent-card{width:500px;border:1px solid #ddd;background:#fff;border-radius:4px;overflow:hidden}
+        /* FRONT PANEL (top half — this faces the guest when folded) */
+        .panel{width:100%;height:280px;display:flex;align-items:center;padding:32px 36px;gap:28px;border:2px solid #FF6F00}
+        .panel-left{flex:1}
+        .panel-right{flex-shrink:0;text-align:center}
+        .logo{font-size:22px;font-weight:800;margin-bottom:14px}.logo span{color:#FF6F00}
+        .p-headline{font-size:24px;font-weight:800;line-height:1.2;margin-bottom:8px;color:#1a1a1a}
+        .p-sub{font-size:13px;color:#666;line-height:1.4}
+        .p-code{font-size:13px;font-weight:700;color:#FF6F00;margin-top:10px}
+        .p-partner{font-size:11px;color:#aaa;margin-top:8px}
+        .qr{width:140px;height:140px;border-radius:8px}
+        .p-scan{font-size:11px;color:#888;margin-top:6px}
+        /* FOLD LINE */
+        .fold{width:100%;border-top:2px dashed #ccc;position:relative;height:28px;display:flex;align-items:center;justify-content:center}
+        .fold-text{font-size:10px;color:#bbb;background:#fff;padding:0 12px;letter-spacing:1px;text-transform:uppercase}
+        /* BACK PANEL (bottom half — upside down so it reads correctly when folded) */
+        .panel-back{transform:rotate(180deg)}
+        .features-row{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap}
+        .feat-item{font-size:12px;color:#555;display:flex;align-items:center;gap:4px}
+        .feat-dot{width:6px;height:6px;border-radius:50%;background:#FF6F00;flex-shrink:0}
     </style>
 </head>
 <body>
@@ -37,20 +47,43 @@
         <button class="lang-btn" data-lang="zh" onclick="setLang('zh',this)">🇨🇳 中文</button>
         <button class="lang-btn" data-lang="ja" onclick="setLang('ja',this)">🇯🇵 日本語</button>
     </div>
-    <div class="card">
-        <div class="left">
-            <div class="logo">Visa<span>Go</span></div>
-            <div class="headline" id="t-headline"></div>
-            <div class="sub" id="t-sub"></div>
-            <div class="partner" id="partnerCredit"></div>
-            <div class="code" id="codeText"></div>
+    <div class="instructions no-print" id="t-instructions">Print this page. Cut along the outer border. Fold in half along the dashed line. Stand upright on a desk — both sides show the same content.</div>
+
+    <div class="tent-card">
+        <!-- FRONT PANEL (faces guest) -->
+        <div class="panel">
+            <div class="panel-left">
+                <div class="logo">Visa<span>Go</span></div>
+                <div class="p-headline" id="t-headline1"></div>
+                <div class="p-sub" id="t-sub1"></div>
+                <div class="p-code" id="t-code1"></div>
+                <div class="p-partner" id="t-partner1"></div>
+            </div>
+            <div class="panel-right">
+                <img class="qr" id="qrImg1" src="" alt="QR">
+                <div class="p-scan" id="t-scan1"></div>
+            </div>
         </div>
-        <div class="right">
-            <div class="qr-wrap"><img class="qr" id="qrImg" src="" alt="QR"></div>
-            <div class="scan" id="t-scan"></div>
+
+        <!-- FOLD LINE -->
+        <div class="fold"><span class="fold-text" id="t-fold">✂️ fold here ✂️</span></div>
+
+        <!-- BACK PANEL (upside down — reads correctly when folded) -->
+        <div class="panel panel-back">
+            <div class="panel-left">
+                <div class="logo">Visa<span>Go</span></div>
+                <div class="p-headline" id="t-headline2"></div>
+                <div class="p-sub" id="t-sub2"></div>
+                <div class="p-code" id="t-code2"></div>
+                <div class="p-partner" id="t-partner2"></div>
+            </div>
+            <div class="panel-right">
+                <img class="qr" id="qrImg2" src="" alt="QR">
+                <div class="p-scan" id="t-scan2"></div>
+            </div>
         </div>
     </div>
-    <p class="note no-print">Print, cut along border, fold to stand upright on a desk.</p>
+
     <script src="/translations.js"></script>
     <script>
         var params=new URLSearchParams(window.location.search);
@@ -58,16 +91,34 @@
         var partnerName=params.get("name")||"";
         var promoCode=params.get("code")||"";
         var url="https://visago.dev/r/"+partnerId;
-        document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
+        var qrSrc="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
+        document.getElementById("qrImg1").src=qrSrc;
+        document.getElementById("qrImg2").src=qrSrc;
+
+        var foldTexts={en:"✂️ fold here ✂️",es:"✂️ doblar aquí ✂️",pt:"✂️ dobre aqui ✂️",fr:"✂️ plier ici ✂️",zh:"✂️ 在此折叠 ✂️",ja:"✂️ ここで折る ✂️"};
+        var instrTexts={en:"Print this page. Cut along the outer border. Fold in half along the dashed line. Stand upright on a desk — both sides show the same content.",es:"Imprime esta página. Corta por el borde. Dobla por la mitad en la línea punteada. Colócalo de pie en un escritorio.",pt:"Imprima esta página. Corte pela borda. Dobre ao meio na linha pontilhada. Coloque em pé na mesa.",fr:"Imprimez cette page. Découpez le long du bord. Pliez en deux le long de la ligne pointillée. Posez debout sur un bureau.",zh:"打印此页。沿外边框剪裁。沿虚线对折。立于桌面。",ja:"このページを印刷。外枠に沿って切り取り。点線で半分に折る。デスクに立てて置く。"};
 
         function setLang(lang,btn){
             var t=VISAGO_TRANSLATIONS[lang]||VISAGO_TRANSLATIONS.en;
-            document.getElementById("t-headline").innerHTML=t.mat_need_visa+"<br>"+t.mat_check_before;
-            document.getElementById("t-sub").textContent=t.mat_scan_qr;
-            document.getElementById("t-scan").textContent=t.mat_scan_me;
+            var h=t.mat_need_visa+"<br>"+t.mat_check_before;
+            document.getElementById("t-headline1").innerHTML=h;
+            document.getElementById("t-headline2").innerHTML=h;
+            var s=t.mat_scan_qr;
+            document.getElementById("t-sub1").textContent=s;
+            document.getElementById("t-sub2").textContent=s;
+            document.getElementById("t-scan1").textContent=t.mat_scan_me;
+            document.getElementById("t-scan2").textContent=t.mat_scan_me;
             document.getElementById("btnPrint").textContent="🖨️ "+t.mat_print;
-            if(promoCode){document.getElementById("codeText").textContent=t.mat_use_code+" "+promoCode}
-            if(partnerName){document.getElementById("partnerCredit").textContent=partnerName}
+            document.getElementById("t-fold").textContent=foldTexts[lang]||foldTexts.en;
+            document.getElementById("t-instructions").textContent=instrTexts[lang]||instrTexts.en;
+            if(promoCode){
+                document.getElementById("t-code1").textContent=t.mat_use_code+" "+promoCode;
+                document.getElementById("t-code2").textContent=t.mat_use_code+" "+promoCode;
+            }
+            if(partnerName){
+                document.getElementById("t-partner1").textContent=partnerName;
+                document.getElementById("t-partner2").textContent=partnerName;
+            }
             document.querySelectorAll(".lang-btn").forEach(function(b){b.classList.remove("active")});
             if(btn)btn.classList.add("active");
         }
