@@ -1,113 +1,102 @@
 // VisaGo Landing Page — Language Switcher
-// Reads translations from /translations.js (VISAGO_TRANSLATIONS global)
+// Must be loaded AFTER translations.js
 
 function setPageLang(lang) {
-    var t = VISAGO_TRANSLATIONS[lang] || VISAGO_TRANSLATIONS.en;
+    if (typeof VISAGO_TRANSLATIONS === "undefined") return;
+    var t = VISAGO_TRANSLATIONS[lang];
     var en = VISAGO_TRANSLATIONS.en;
+    if (!t) t = en;
+
+    function T(key) { return t[key] || en[key] || ""; }
 
     // Nav
     var navFeatures = document.querySelector('a[href="#features"]');
     var navPricing = document.querySelector('a[href="#pricing"]');
     var navPartners = document.querySelector('a[href="#partners"]');
     var navCta = document.querySelector('.nav-cta');
-    if (navFeatures) navFeatures.textContent = t.nav_features || en.nav_features;
-    if (navPricing) navPricing.textContent = t.nav_pricing || en.nav_pricing;
-    if (navPartners) navPartners.textContent = t.nav_partners || en.nav_partners;
-    if (navCta) navCta.textContent = t.nav_download || en.nav_download;
+    if (navFeatures) navFeatures.textContent = T("nav_features");
+    if (navPricing) navPricing.textContent = T("nav_pricing");
+    if (navPartners) navPartners.textContent = T("nav_partners");
+    if (navCta) navCta.textContent = T("nav_download");
 
     // Hero
-    setText("t-hero-badge", t.hero_badge || en.hero_badge);
-    setHtml("t-hero-title", (t.hero_title_1 || en.hero_title_1) + " <span>" + (t.hero_title_2 || en.hero_title_2) + "</span>");
-    setText("t-hero-subtitle", t.hero_subtitle || en.hero_subtitle);
-    setText("t-hero-gplay", t.hero_google_play || en.hero_google_play);
-    setText("t-hero-ios", t.hero_ios_waitlist || en.hero_ios_waitlist);
-    setText("t-stat-countries", t.stat_countries || en.stat_countries);
-    setText("t-stat-tools", t.stat_tools || en.stat_tools);
-    setText("t-stat-languages", t.stat_languages || en.stat_languages);
-    setText("t-stat-offline", t.stat_offline || en.stat_offline);
+    var heroBadge = document.getElementById("t-hero-badge");
+    if (heroBadge) heroBadge.innerHTML = "🇺🇸 🇪🇸 🇧🇷 🇫🇷 🇨🇳 🇯🇵 " + T("hero_badge");
+    var heroTitle = document.getElementById("t-hero-title");
+    if (heroTitle) heroTitle.innerHTML = T("hero_title_1") + " <span>" + T("hero_title_2") + "</span>";
+    var heroSub = document.getElementById("t-hero-subtitle");
+    if (heroSub) heroSub.textContent = T("hero_subtitle");
+    var heroGplay = document.getElementById("t-hero-gplay");
+    if (heroGplay) heroGplay.textContent = T("hero_google_play");
+    var heroIos = document.getElementById("t-hero-ios");
+    if (heroIos) heroIos.textContent = T("hero_ios_waitlist");
 
-    // Features section
-    setText("t-feat-heading", t.feat_heading || en.feat_heading);
-    setText("t-feat-subheading", t.feat_subheading || en.feat_subheading);
+    // Stats
+    var s1 = document.getElementById("t-stat-countries"); if (s1) s1.textContent = T("stat_countries");
+    var s2 = document.getElementById("t-stat-tools"); if (s2) s2.textContent = T("stat_tools");
+    var s3 = document.getElementById("t-stat-languages"); if (s3) s3.textContent = T("stat_languages");
+    var s4 = document.getElementById("t-stat-offline"); if (s4) s4.textContent = T("stat_offline");
+
+    // Features heading
+    var fh = document.getElementById("t-feat-heading"); if (fh) fh.textContent = T("feat_heading");
+    var fs = document.getElementById("t-feat-subheading"); if (fs) fs.textContent = T("feat_subheading");
 
     // Feature cards
-    setFeatureCard("fc-countries", t.feat_countries || en.feat_countries, t.badge_free || en.badge_free, "badge-free", t.feat_countries_desc || en.feat_countries_desc);
-    setFeatureCard("fc-checklists", t.feat_checklists || en.feat_checklists, t.badge_free || en.badge_free, "badge-free", t.feat_checklists_desc || en.feat_checklists_desc);
-    setFeatureCard("fc-trip", t.feat_trip || en.feat_trip, t.badge_free || en.badge_free, "badge-free", t.feat_trip_desc || en.feat_trip_desc);
-    setFeatureCard("fc-currency", t.feat_currency || en.feat_currency, t.badge_new || en.badge_new, "badge-new", t.feat_currency_desc || en.feat_currency_desc);
-    setFeatureCard("fc-schengen", t.feat_schengen || en.feat_schengen, t.badge_premium || en.badge_premium, "badge-premium", t.feat_schengen_desc || en.feat_schengen_desc);
-    setFeatureCard("fc-visa-stay", t.feat_visa_stay || en.feat_visa_stay, t.badge_premium || en.badge_premium, "badge-premium", t.feat_visa_stay_desc || en.feat_visa_stay_desc);
-    setFeatureCard("fc-passport", t.feat_passport || en.feat_passport, t.badge_premium || en.badge_premium, "badge-premium", t.feat_passport_desc || en.feat_passport_desc);
-    setFeatureCard("fc-nomad", t.feat_nomad || en.feat_nomad, t.badge_premium || en.badge_premium, "badge-premium", t.feat_nomad_desc || en.feat_nomad_desc);
-    setFeatureCard("fc-docs", t.feat_docs || en.feat_docs, null, null, t.feat_docs_desc || en.feat_docs_desc);
-    setFeatureCard("fc-links", t.feat_links || en.feat_links, t.badge_new || en.badge_new, "badge-new", t.feat_links_desc || en.feat_links_desc);
-    setFeatureCard("fc-alerts", t.feat_alerts || en.feat_alerts, null, null, t.feat_alerts_desc || en.feat_alerts_desc);
-    setFeatureCard("fc-offline", t.feat_offline || en.feat_offline, null, null, t.feat_offline_desc || en.feat_offline_desc);
+    setFC("fc-countries", T("feat_countries"), T("badge_free"), "badge-free", T("feat_countries_desc"));
+    setFC("fc-checklists", T("feat_checklists"), T("badge_free"), "badge-free", T("feat_checklists_desc"));
+    setFC("fc-trip", T("feat_trip"), T("badge_free"), "badge-free", T("feat_trip_desc"));
+    setFC("fc-currency", T("feat_currency"), T("badge_new"), "badge-new", T("feat_currency_desc"));
+    setFC("fc-schengen", T("feat_schengen"), T("badge_premium"), "badge-premium", T("feat_schengen_desc"));
+    setFC("fc-visa-stay", T("feat_visa_stay"), T("badge_premium"), "badge-premium", T("feat_visa_stay_desc"));
+    setFC("fc-passport", T("feat_passport"), T("badge_premium"), "badge-premium", T("feat_passport_desc"));
+    setFC("fc-nomad", T("feat_nomad"), T("badge_premium"), "badge-premium", T("feat_nomad_desc"));
+    setFC("fc-docs", T("feat_docs"), null, null, T("feat_docs_desc"));
+    setFC("fc-links", T("feat_links"), T("badge_new"), "badge-new", T("feat_links_desc"));
+    setFC("fc-alerts", T("feat_alerts"), null, null, T("feat_alerts_desc"));
+    setFC("fc-offline", T("feat_offline"), null, null, T("feat_offline_desc"));
 
     // Scam section
-    setText("t-scam-title", t.scam_title || en.scam_title);
-    setText("t-scam-desc", t.scam_desc || en.scam_desc);
+    var st = document.getElementById("t-scam-title"); if (st) st.textContent = T("scam_title");
+    var sd = document.getElementById("t-scam-desc"); if (sd) sd.textContent = T("scam_desc");
 
     // Pricing
-    setText("t-price-heading", t.price_heading || en.price_heading);
-    setText("t-price-subheading", t.price_subheading || en.price_subheading);
-    setText("t-price-monthly", t.price_monthly || en.price_monthly);
-    setText("t-price-annual", t.price_annual || en.price_annual);
-    setText("t-price-mo", t.price_mo || en.price_mo);
-    setText("t-price-yr", t.price_yr || en.price_yr);
-    setText("t-price-billed-monthly", t.price_billed_monthly || en.price_billed_monthly);
-    setText("t-price-billed-annual", t.price_billed_annual || en.price_billed_annual);
-    var getBtns = document.querySelectorAll(".pricing-btn");
-    getBtns.forEach(function(b) { b.textContent = t.price_get_started || en.price_get_started; });
-    setText("t-price-free", t.price_free_tier || en.price_free_tier);
-
-    // Best Value badge
-    var bestVal = document.querySelector(".pricing-card.featured::before");
-    // Can't change pseudo-element text via JS, so we use a data attribute approach
-    var featuredCard = document.querySelector(".pricing-card.featured");
-    if (featuredCard) featuredCard.setAttribute("data-badge", t.price_best_value || en.price_best_value);
+    var ph = document.getElementById("t-price-heading"); if (ph) ph.textContent = T("price_heading");
+    var ps = document.getElementById("t-price-subheading"); if (ps) ps.textContent = T("price_subheading");
+    var pm = document.getElementById("t-price-monthly"); if (pm) pm.textContent = T("price_monthly");
+    var pa = document.getElementById("t-price-annual"); if (pa) pa.textContent = T("price_annual");
+    var pmo = document.getElementById("t-price-mo"); if (pmo) pmo.textContent = T("price_mo");
+    var pyr = document.getElementById("t-price-yr"); if (pyr) pyr.textContent = T("price_yr");
+    var pbm = document.getElementById("t-price-billed-monthly"); if (pbm) pbm.textContent = T("price_billed_monthly");
+    var pba = document.getElementById("t-price-billed-annual"); if (pba) pba.textContent = T("price_billed_annual");
+    var pf = document.getElementById("t-price-free"); if (pf) pf.textContent = T("price_free_tier");
+    document.querySelectorAll(".pricing-btn").forEach(function(b) { b.textContent = T("price_get_started"); });
 
     // Charity
-    setText("t-charity-title", t.charity_title || en.charity_title);
-    setText("t-charity-desc", t.charity_desc || en.charity_desc);
+    var ct = document.getElementById("t-charity-title"); if (ct) ct.textContent = T("charity_title");
+    var cd = document.getElementById("t-charity-desc"); if (cd) cd.textContent = T("charity_desc");
 
     // Partners
-    setText("t-partners-title", t.partners_title || en.partners_title);
-    setText("t-partners-desc", t.partners_desc || en.partners_desc);
-    setText("t-partners-learn", t.partners_learn_more || en.partners_learn_more);
+    var pt2 = document.getElementById("t-partners-title"); if (pt2) pt2.textContent = T("partners_title");
+    var pd2 = document.getElementById("t-partners-desc"); if (pd2) pd2.textContent = T("partners_desc");
+    var pl = document.getElementById("t-partners-learn"); if (pl) pl.innerHTML = T("partners_learn_more") + " &rarr;";
 
     // Footer
-    setText("t-footer-privacy", t.footer_privacy || en.footer_privacy);
-    setText("t-footer-terms", t.footer_terms || en.footer_terms);
-    setText("t-footer-contact", t.footer_contact || en.footer_contact);
+    var fp = document.getElementById("t-footer-privacy"); if (fp) fp.textContent = T("footer_privacy");
+    var ft2 = document.getElementById("t-footer-terms"); if (ft2) ft2.textContent = T("footer_terms");
+    var fc = document.getElementById("t-footer-contact"); if (fc) fc.textContent = T("footer_contact");
 
-    // Update active lang button
+    // Update active button
     document.querySelectorAll(".lang-btn").forEach(function(b) { b.classList.remove("active"); });
-    var activeBtn = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
-    if (activeBtn) activeBtn.classList.add("active");
+    var ab = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
+    if (ab) ab.classList.add("active");
 
-    // Save preference
-    try { localStorage.setItem("visago_lang", lang); } catch(e) {}
-
-    // Update URL without reload
-    var newUrl = lang === "en" ? "/" : "/?lang=" + lang;
-    history.replaceState(null, "", newUrl);
-
-    // Update html lang attribute
+    // Update URL and lang attribute
+    var newUrl = lang === "en" ? window.location.pathname : window.location.pathname + "?lang=" + lang;
+    try { history.replaceState(null, "", newUrl); } catch(e) {}
     document.documentElement.lang = lang;
 }
 
-function setText(id, text) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = text;
-}
-
-function setHtml(id, html) {
-    var el = document.getElementById(id);
-    if (el) el.innerHTML = html;
-}
-
-function setFeatureCard(id, title, badgeText, badgeClass, desc) {
+function setFC(id, title, badgeText, badgeClass, desc) {
     var card = document.getElementById(id);
     if (!card) return;
     var h3 = card.querySelector("h3");
@@ -122,16 +111,16 @@ function setFeatureCard(id, title, badgeText, badgeClass, desc) {
     if (p) p.textContent = desc;
 }
 
-// Initialize on page load
-document.addEventListener("DOMContentLoaded", function() {
+// Auto-initialize
+(function() {
     var params = new URLSearchParams(window.location.search);
     var lang = params.get("lang") || "en";
-    try {
-        var saved = localStorage.getItem("visago_lang");
-        if (saved && !params.get("lang")) lang = saved;
-    } catch(e) {}
-
     if (lang !== "en") {
-        setPageLang(lang);
+        // Run immediately if translations are loaded, otherwise wait
+        if (typeof VISAGO_TRANSLATIONS !== "undefined") {
+            setPageLang(lang);
+        } else {
+            document.addEventListener("DOMContentLoaded", function() { setPageLang(lang); });
+        }
     }
-});
+})();
