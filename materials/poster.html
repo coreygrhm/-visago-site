@@ -48,6 +48,7 @@
         <div class="qr-wrapper"><img class="qr" id="qrImg" src="" alt="QR Code"></div>
         <div class="url-text" id="urlText"></div>
         <div class="scan-text">Scan to check visa requirements instantly</div>
+        <div class="code-text" id="codeText" style="font-size:16px;font-weight:700;color:#FF6F00;margin-bottom:32px;position:relative;letter-spacing:1px"></div>
         <div class="features">
             <div class="feat"><div class="feat-dot"></div>199 Countries</div>
             <div class="feat"><div class="feat-dot"></div>Works Offline</div>
@@ -64,9 +65,11 @@
         var params=new URLSearchParams(window.location.search);
         var partnerId=params.get("ref")||params.get("partner")||"partner";
         var partnerName=params.get("name")||"";
+        var promoCode=params.get("code")||"";
         var url="https://visago.dev/r/"+partnerId;
         document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
         document.getElementById("urlText").textContent=url;
+        if(promoCode){document.getElementById("codeText").textContent="Use code: "+promoCode}
         if(partnerName){document.getElementById("partnerCredit").textContent="Recommended by "+partnerName}
         function toggleDark(){document.getElementById("poster").classList.toggle("dark")}
     </script>
