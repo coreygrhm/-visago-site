@@ -34,6 +34,7 @@ Before your upcoming trip to [Destination], I wanted to make sure you have every
 I recommend downloading VisaGo — it's a free app that shows you exactly what visa and documents you need for your destination. It covers 199 countries and works offline, so you can check requirements even when you're traveling.
 
 Download here: REFERRAL_LINK
+Use code PROMO_CODE for free premium access.
 
 Key features:
 - Instant visa requirement checks for any passport
@@ -177,10 +178,10 @@ Free download: REFERRAL_LINK
     <script>
         var params=new URLSearchParams(window.location.search);
         var partnerId=params.get("ref")||"partner";
+        var promoCode=params.get("code")||"YOUR-CODE-HERE";
         var url="https://visago.dev/r/"+partnerId;
-        // Replace all REFERRAL_LINK placeholders
         document.querySelectorAll("pre").forEach(function(el){
-            el.textContent=el.textContent.replace(/REFERRAL_LINK/g,url);
+            el.textContent=el.textContent.replace(/REFERRAL_LINK/g,url).replace(/PROMO_CODE/g,promoCode);
         });
         function copyEmail(id){
             var text=document.getElementById(id).textContent;
