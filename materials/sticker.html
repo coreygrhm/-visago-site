@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisaGo — Sticker</title>
+    <title>VisaGo — Sticker Sheet</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:20mm}}
         body{font-family:system-ui,sans-serif;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;padding:20px}
-        .controls{margin-bottom:20px}
-        .controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;background:#FF6F00;color:#fff;font-family:inherit}
+        .controls{margin-bottom:12px}.controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;background:#FF6F00;color:#fff;font-family:inherit}
+        .lang-bar{margin-bottom:20px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+        .lang-btn{padding:6px 14px;border-radius:6px;border:2px solid #ddd;background:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s}
+        .lang-btn.active{border-color:#FF6F00;background:#FFF3E0}.lang-btn:hover{border-color:#FF6F00}
         .sticker-sheet{display:grid;grid-template-columns:1fr 1fr;gap:24px}
         .sticker{width:200px;height:200px;border-radius:50%;border:3px solid #FF6F00;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px}
         .s-logo{font-size:15px;font-weight:800;margin-bottom:6px}.s-logo span{color:#FF6F00}
@@ -20,21 +22,39 @@
 </head>
 <body>
     <div class="controls no-print">
-        <button onclick="window.print()">🖨️ Print Sticker Sheet</button>
-        <p class="note">Prints 4 stickers per sheet. Cut along the circle borders.</p>
+        <button id="btnPrint" onclick="window.print()">🖨️ Print Sticker Sheet</button>
+    </div>
+    <div class="lang-bar no-print">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en',this)">🇺🇸 English</button>
+        <button class="lang-btn" data-lang="es" onclick="setLang('es',this)">🇪🇸 Español</button>
+        <button class="lang-btn" data-lang="pt" onclick="setLang('pt',this)">🇧🇷 Português</button>
+        <button class="lang-btn" data-lang="fr" onclick="setLang('fr',this)">🇫🇷 Français</button>
+        <button class="lang-btn" data-lang="zh" onclick="setLang('zh',this)">🇨🇳 中文</button>
+        <button class="lang-btn" data-lang="ja" onclick="setLang('ja',this)">🇯🇵 日本語</button>
     </div>
     <div class="sticker-sheet">
-        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
-        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
-        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
-        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text">Scan for visa info</div></div>
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text t-sticker-text"></div></div>
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text t-sticker-text"></div></div>
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text t-sticker-text"></div></div>
+        <div class="sticker"><div class="s-logo">Visa<span>Go</span></div><img class="s-qr qr-img" src="" alt="QR"><div class="s-text t-sticker-text"></div></div>
     </div>
+    <p class="note no-print">Prints 4 stickers per sheet. Cut along the circle borders.</p>
+    <script src="/translations.js"></script>
     <script>
         var params=new URLSearchParams(window.location.search);
         var partnerId=params.get("ref")||"partner";
         var url="https://visago.dev/r/"+partnerId;
         var qrSrc="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+encodeURIComponent(url);
         document.querySelectorAll(".qr-img").forEach(function(img){img.src=qrSrc});
+
+        function setLang(lang,btn){
+            var t=VISAGO_TRANSLATIONS[lang]||VISAGO_TRANSLATIONS.en;
+            document.querySelectorAll(".t-sticker-text").forEach(function(el){el.textContent=t.mat_scan_for_info});
+            document.getElementById("btnPrint").textContent="🖨️ "+t.mat_print;
+            document.querySelectorAll(".lang-btn").forEach(function(b){b.classList.remove("active")});
+            if(btn)btn.classList.add("active");
+        }
+        setLang(params.get("lang")||"en",document.querySelector('.lang-btn[data-lang="'+(params.get("lang")||"en")+'"]'));
     </script>
 </body>
 </html>
