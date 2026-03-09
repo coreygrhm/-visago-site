@@ -8,42 +8,50 @@
         *{margin:0;padding:0;box-sizing:border-box}
         @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:20mm}}
         body{font-family:system-ui,sans-serif;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;padding:20px}
-        .controls{margin-bottom:20px;display:flex;gap:12px}
-        .controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
-        .btn-print{background:#FF6F00;color:#fff}
+        .controls{margin-bottom:12px;display:flex;gap:12px}.controls button{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;background:#FF6F00;color:#fff;font-family:inherit}
+        .lang-bar{margin-bottom:20px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+        .lang-btn{padding:6px 14px;border-radius:6px;border:2px solid #ddd;background:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s}
+        .lang-btn.active{border-color:#FF6F00;background:#FFF3E0}.lang-btn:hover{border-color:#FF6F00}
         .card{width:420px;height:260px;background:#fff;border-radius:16px;display:flex;align-items:center;padding:32px;gap:28px;border:2px solid #FF6F00;box-shadow:0 2px 16px rgba(0,0,0,0.08)}
         .left{flex:1}.right{flex-shrink:0}
         .logo{font-size:20px;font-weight:800;margin-bottom:16px}.logo span{color:#FF6F00}
         .headline{font-size:22px;font-weight:800;line-height:1.2;margin-bottom:8px;color:#1a1a1a}
-        .sub{font-size:13px;color:#666;margin-bottom:16px;line-height:1.4}
+        .sub{font-size:13px;color:#666;margin-bottom:12px;line-height:1.4;white-space:pre-line}
         .partner{font-size:11px;color:#aaa}
+        .code{font-size:12px;font-weight:700;color:#FF6F00;margin-top:6px}
         .qr-wrap{padding:8px;background:#fff;border-radius:12px;border:1px solid #eee}
         .qr{width:140px;height:140px;border-radius:6px}
         .scan{font-size:10px;color:#888;text-align:center;margin-top:6px}
-        .fold-line{width:420px;border-top:1px dashed #ccc;margin:12px 0}
-        .fold-label{font-size:10px;color:#ccc;text-align:center}
+        .note{font-size:12px;color:#888;margin-top:16px;text-align:center}
     </style>
 </head>
 <body>
     <div class="controls no-print">
-        <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
-        <p style="font-size:12px;color:#888;margin-top:8px">Print, cut along border, fold to stand upright on a desk.</p>
+        <button id="btnPrint" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+    <div class="lang-bar no-print">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en',this)">🇺🇸 English</button>
+        <button class="lang-btn" data-lang="es" onclick="setLang('es',this)">🇪🇸 Español</button>
+        <button class="lang-btn" data-lang="pt" onclick="setLang('pt',this)">🇧🇷 Português</button>
+        <button class="lang-btn" data-lang="fr" onclick="setLang('fr',this)">🇫🇷 Français</button>
+        <button class="lang-btn" data-lang="zh" onclick="setLang('zh',this)">🇨🇳 中文</button>
+        <button class="lang-btn" data-lang="ja" onclick="setLang('ja',this)">🇯🇵 日本語</button>
     </div>
     <div class="card">
         <div class="left">
             <div class="logo">Visa<span>Go</span></div>
-            <div class="headline">Need a visa?<br>Check before you go.</div>
-            <div class="sub">Scan the QR code for instant visa requirements, trip checklists, and more.</div>
+            <div class="headline" id="t-headline"></div>
+            <div class="sub" id="t-sub"></div>
             <div class="partner" id="partnerCredit"></div>
-            <div id="codeText" style="font-size:12px;font-weight:700;color:#FF6F00;margin-top:6px"></div>
+            <div class="code" id="codeText"></div>
         </div>
         <div class="right">
             <div class="qr-wrap"><img class="qr" id="qrImg" src="" alt="QR"></div>
-            <div class="scan">Scan me</div>
+            <div class="scan" id="t-scan"></div>
         </div>
     </div>
-    <div class="fold-line no-print"></div>
-    <div class="fold-label no-print">↑ fold here for tent card ↑</div>
+    <p class="note no-print">Print, cut along border, fold to stand upright on a desk.</p>
+    <script src="/translations.js"></script>
     <script>
         var params=new URLSearchParams(window.location.search);
         var partnerId=params.get("ref")||"partner";
@@ -51,8 +59,19 @@
         var promoCode=params.get("code")||"";
         var url="https://visago.dev/r/"+partnerId;
         document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
-        if(partnerName){document.getElementById("partnerCredit").textContent=partnerName}
-        if(promoCode){document.getElementById("codeText").textContent="Code: "+promoCode}
+
+        function setLang(lang,btn){
+            var t=VISAGO_TRANSLATIONS[lang]||VISAGO_TRANSLATIONS.en;
+            document.getElementById("t-headline").innerHTML=t.mat_need_visa+"<br>"+t.mat_check_before;
+            document.getElementById("t-sub").textContent=t.mat_scan_qr;
+            document.getElementById("t-scan").textContent=t.mat_scan_me;
+            document.getElementById("btnPrint").textContent="🖨️ "+t.mat_print;
+            if(promoCode){document.getElementById("codeText").textContent=t.mat_use_code+" "+promoCode}
+            if(partnerName){document.getElementById("partnerCredit").textContent=partnerName}
+            document.querySelectorAll(".lang-btn").forEach(function(b){b.classList.remove("active")});
+            if(btn)btn.classList.add("active");
+        }
+        setLang(params.get("lang")||"en",document.querySelector('.lang-btn[data-lang="'+(params.get("lang")||"en")+'"]'));
     </script>
 </body>
 </html>
